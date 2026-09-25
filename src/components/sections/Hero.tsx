@@ -11,7 +11,6 @@ const facts: { value: string; label: string; italic?: boolean }[] = [
 export function Hero() {
   return (
     <section
-      id="top"
       className="wrap split"
       style={{
         ["--cols" as string]: "minmax(0, 1.12fr) minmax(0, .88fr)",
