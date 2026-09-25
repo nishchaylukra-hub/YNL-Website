@@ -22,28 +22,43 @@ before `node`/`npm` resolve in a fresh non-interactive shell, since `~/.zshrc`'s
 ## Architecture
 
 ### Page structure
-Single-page marketing site. `src/app/page.tsx` is a server component that composes the page from
-`src/components/sections/`: `Header`, `Hero`, `Proof`, `Services`, `About`, `Testimonials`, `Contact`, `Footer`. Each section is presentational; the only local state anywhere on the page is the contact form's `sent`
-flag in `Contact.tsx` (which is why `Contact.tsx` is the only section marked `"use client"`).
+Three routes, each a server component composing sections with a shared `Header` (takes `current` for the
+active nav item) and `Footer`:
+- `/` (`src/app/page.tsx`) — `Hero`, `Proof`, `Services`, `About` (teaser), `Testimonials`, `ContactBand`
+  from `src/components/sections/`.
+- `/about` (`src/app/about/page.tsx`) — `AboutHero`, `Timeline`, `LegalCell` (`#legal`), `Principals`,
+  `AboutCta` from `src/components/about/`.
+- `/contact` (`src/app/contact/page.tsx`) — `Contact`, the only `"use client"` section: details, office map
+  and the Forminit enquiry form (form id in `Contact.tsx`; the SDK script loads in `layout.tsx`).
+- `/thank-you` — Forminit's post-submit redirect target.
+
+### Styling conventions
+- Brand tokens (colours, `SERIF` font stack, label/heading/button style helpers, `sectionPad`) live in
+  `src/components/tokens.ts` — use them instead of new hex literals. Small labels on light grounds use
+  `BRONZE`, not `GOLD` (gold fails contrast there).
+- Inline styles can't carry media queries, so `globals.css` has a few responsive layout primitives:
+  `.wrap` (side gutters), `.split` (two-column grid; `--cols`, `--gap`, `--gap-sm`), `.ledger-row`,
+  `.ruled-cols` (hairline-divided columns; `--n`, `--rule`), `.offset-down`, `.hide-sm`. All collapse at
+  900px. Set their CSS variables from inline style as `["--cols" as string]: "…"`.
 
 ### Hero (`src/components/sections/Hero.tsx`)
-A static full-viewport section with a CSS `linear-gradient` background (dark olive → near-black, matching the
-site's palette) and a bottom-anchored dark scrim for text legibility — no WebGL, no JS animation. Headline, stat,
-and CTAs are plain markup layered on top. An earlier version of this project rendered a procedurally-built
-Three.js/React Three Fiber scene here (a walkway/gate/facade fly-through); it was removed in favor of a plain
-gradient hero, and the `three`/`@react-three/*` dependencies were dropped from `package.json` accordingly.
+Static two-column hero: headline, CTAs and a fact row beside `SurveyPlate` — an inline-SVG "survey sheet"
+of hairline plot boundaries, the brand's signature motif (a nod to the firm's agriculture-land origins; it is
+illustrative, not a real parcel). No WebGL or JS animation. An earlier version rendered a Three.js/React Three
+Fiber scene here; it and the `three`/`@react-three/*` dependencies were removed.
 
 ### Design assets
 - `public/assets/ynl-logo-mark.png` — the only real image asset; pulled from the `claude_design` project
   ("Interactive realty homepage design", project id `9a443efa-2ebf-4c8a-9c5a-a033e843e5b0`) via the DesignSync
-  MCP. Team portraits and the office map are still placeholders (`src/components/ImagePlaceholder.tsx`) — swap
-  those for real photos in `About.tsx` / `Contact.tsx` when available.
+  MCP. Team portraits are still placeholders (`src/components/ImagePlaceholder.tsx`) — swap those for real
+  photos in `sections/About.tsx` and `about/Principals.tsx` when available. The office map in `Contact.tsx`
+  is a stylised SVG, not a real map.
 - Fonts (Cormorant Garamond, Jost) are loaded via `next/font/google` in `src/app/layout.tsx` as CSS variables
   (`--font-cormorant`, `--font-jost`); reference them as `var(--font-cormorant), Georgia, serif` etc. in style
   objects rather than adding new `<link>` tags.
 
 ### Provenance
-This app was scaffolded from a design authored in the `claude_design` MCP tool (`YNL Realtors Homepage.dc.html`
-and its imports `hero-scene.js`, `image-slot.js`, `support.js`). The original hero was a direct port of the
-`hero-scene.js` WebGL prototype; it was later replaced with a plain CSS-gradient hero, so that design-tool
-project no longer reflects the current hero's visual reference — only the rest of the page layout.
+The current design comes from the "YNL Realtors Website" design canvas on claude.ai
+(https://claude.ai/artifact/21iWKS5Rv6F3ZSrVrjfTEk): brand foundations, home, about, contact and mobile boards.
+The site was originally scaffolded from a `claude_design` MCP project (`YNL Realtors Homepage.dc.html`), which
+no longer reflects the current layout.

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type CSSProperties, type FormEvent } from "react";
-import { ImagePlaceholder } from "../ImagePlaceholder";
+import { BONE, GOLD, INK, INK_2, SERIF, buttonBase, eyebrow, sectionPad } from "../tokens";
 
 const FORMINIT_FORM_ID = "fdtcek1uzvk";
 
@@ -19,19 +19,21 @@ declare global {
   }
 }
 
+const fieldStyle: CSSProperties = { display: "flex", flexDirection: "column", gap: 10 };
+
 const fieldLabelStyle: CSSProperties = {
   fontSize: 11,
-  letterSpacing: ".2em",
+  letterSpacing: ".22em",
   textTransform: "uppercase",
-  color: "rgba(247,244,238,.5)",
+  color: "rgba(247,244,238,.62)",
 };
 
 const fieldInputStyle: CSSProperties = {
   background: "transparent",
   border: "none",
-  borderBottom: "1px solid rgba(247,244,238,.28)",
-  color: "#F7F4EE",
-  fontSize: 16,
+  borderBottom: "1px solid rgba(247,244,238,.3)",
+  color: BONE,
+  fontSize: 17,
   padding: "10px 0",
   outline: "none",
 };
@@ -68,165 +70,213 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" style={{ background: "#14130F", padding: "112px 44px 96px" }}>
-      <div style={{ maxWidth: 1240, margin: "0 auto", display: "flex", flexDirection: "column", gap: 64 }}>
-        <div style={{ display: "grid", gridTemplateColumns: "minmax(0,1.1fr) minmax(0,1fr)", gap: 72, alignItems: "start" }}>
-          <div style={{ display: "flex", flexDirection: "column", gap: 34, minWidth: 0 }}>
-            <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
-              <p style={{ margin: 0, fontSize: 11, letterSpacing: ".4em", textTransform: "uppercase", color: "#C9A227" }}>
-                Contact details
-              </p>
-              <h2
-                style={{
-                  margin: 0,
-                  fontFamily: "var(--font-cormorant), Georgia, serif",
-                  fontWeight: 300,
-                  fontSize: "clamp(34px, 3.6vw, 56px)",
-                  lineHeight: 1.05,
-                  color: "#F7F4EE",
-                  textWrap: "balance",
-                }}
-              >
-                Come to the table.
-              </h2>
-              <p style={{ margin: 0, fontSize: 16, lineHeight: 1.7, color: "rgba(247,244,238,.66)", maxWidth: 420, textWrap: "pretty" }}>
-                Viewings and portfolio reviews are by appointment. Tell us what you are holding or hunting and a
-                principal replies the same working day.
-              </p>
-            </div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: "30px 40px" }}>
-              <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                <p style={infoLabelStyle}>Office</p>
-                <p style={infoValueStyle}>
-                  S-22, Sector 12, Faridabad
-                  <br />
-                  3E-8, NIT, Faridabad
-                </p>
-              </div>
-              <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                <p style={infoLabelStyle}>Hours</p>
-                <p style={infoValueStyle}>
-                  Mon–Sat, 9:00am–5:00pm
-                  <br />
-                  Sunday by appointment
-                </p>
-              </div>
-              <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                <p style={infoLabelStyle}>Direct</p>
-                <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-                  <a href="tel:+919717847278" className="hover-gold" style={{ fontSize: 16, color: "#F7F4EE" }}>
-                    +91 97178 47278
-                  </a>
-                  <a href="tel:+919811047278" className="hover-gold" style={{ fontSize: 16, color: "#F7F4EE" }}>
-                    +91 98110 47278
-                  </a>
-                </div>
-              </div>
-              <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                <p style={infoLabelStyle}>Email</p>
-                <a href="mailto:ynlrealtors@gmail.com" className="hover-gold" style={{ fontSize: 16, color: "#F7F4EE" }}>
-                  ynlrealtors@gmail.com
-                </a>
-              </div>
-            </div>
-            <ImagePlaceholder
-              label="Drop a map of the office location"
-              style={{ height: 280, background: "#1D1B15", border: "1px solid rgba(247,244,238,.14)" }}
-            />
-          </div>
+    <section
+      id="contact"
+      className="wrap"
+      style={{ display: "flex", flexDirection: "column", gap: 72, paddingTop: "clamp(64px, 7vw, 104px)", paddingBottom: sectionPad, background: INK }}
+    >
+      <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+        <p style={eyebrow(GOLD)}>§ 01 — Contact</p>
+        <h1
+          style={{
+            margin: 0,
+            fontFamily: SERIF,
+            fontWeight: 300,
+            fontSize: "clamp(56px, 8.3vw, 120px)",
+            lineHeight: 0.95,
+            letterSpacing: "-.02em",
+            color: BONE,
+          }}
+        >
+          Come to <em style={{ fontStyle: "italic", color: GOLD }}>the table.</em>
+        </h1>
+        <p style={{ margin: 0, fontSize: 18, lineHeight: 1.7, color: "rgba(247,244,238,.74)", maxWidth: 560, textWrap: "pretty" }}>
+          Viewings and portfolio reviews are by appointment. Tell us what you are holding or hunting and a principal
+          replies the same working day.
+        </p>
+      </div>
 
-          <form
-            onSubmit={onSubmit}
-            style={{ display: "flex", flexDirection: "column", gap: 22, background: "#1A1811", border: "1px solid rgba(247,244,238,.12)", padding: 40 }}
-          >
-            <p style={{ margin: 0, fontFamily: "var(--font-cormorant), Georgia, serif", fontSize: 28, color: "#F7F4EE" }}>
-              Request the portfolio
-            </p>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 18 }}>
-              <label style={{ display: "flex", flexDirection: "column", gap: 9 }}>
-                <span style={fieldLabelStyle}>Name</span>
-                <input type="text" name="fi-sender-fullName" required style={fieldInputStyle} />
-              </label>
-              <label style={{ display: "flex", flexDirection: "column", gap: 9 }}>
-                <span style={fieldLabelStyle}>Phone</span>
-                <input type="tel" name="fi-sender-phone" style={fieldInputStyle} />
-              </label>
+      <div className="split" style={{ alignItems: "start" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 48, minWidth: 0 }}>
+          <dl style={{ margin: 0, display: "flex", flexDirection: "column", borderTop: infoRule }}>
+            <div style={infoRowStyle}>
+              <dt style={infoLabelStyle}>Offices</dt>
+              <dd style={infoValueStyle}>
+                S-22, Sector 12, Faridabad
+                <br />
+                3E-8, NIT, Faridabad
+              </dd>
             </div>
-            <label style={{ display: "flex", flexDirection: "column", gap: 9 }}>
-              <span style={fieldLabelStyle}>Email</span>
-              <input type="email" name="fi-sender-email" required style={fieldInputStyle} />
-            </label>
-            <label style={{ display: "flex", flexDirection: "column", gap: 9 }}>
-              <span style={fieldLabelStyle}>I am here for</span>
-              <select name="fi-select-interest" style={{ ...fieldInputStyle, background: "#1A1811" }}>
-                <option>Buying land or an estate</option>
-                <option>Selling a property</option>
-                <option>Portfolio &amp; investment advice</option>
-                <option>Commercial space</option>
-                <option>Developer partnership</option>
-                <option>A premium rental</option>
-              </select>
-            </label>
-            <label style={{ display: "flex", flexDirection: "column", gap: 9 }}>
-              <span style={fieldLabelStyle}>What are you looking for</span>
-              <textarea name="fi-text-message" rows={4} style={{ ...fieldInputStyle, resize: "vertical" }} />
-            </label>
-            <button
-              type="submit"
-              disabled={status === "sending"}
-              className="btn-gold"
-              style={{
-                marginTop: 8,
-                background: "#C9A227",
-                border: "1px solid #C9A227",
-                color: "#14130F",
-                fontFamily: "var(--font-jost), sans-serif",
-                fontSize: 12,
-                letterSpacing: ".2em",
-                textTransform: "uppercase",
-                fontWeight: 500,
-                padding: "17px 28px",
-                cursor: status === "sending" ? "wait" : "pointer",
-                opacity: status === "sending" ? 0.7 : 1,
-              }}
-            >
-              {status === "sending" ? "Sending…" : status === "success" ? "Enquiry sent" : "Send enquiry"}
-            </button>
-            {status === "success" && (
-              <p style={{ margin: 0, fontSize: 14, color: "#C9A227" }}>
-                Received — a principal will reply from ynlrealtors@gmail.com today.
-              </p>
-            )}
-            {status === "error" && (
-              <p style={{ margin: 0, fontSize: 14, color: "#E08A45" }}>
-                {errorMessage || "Something went wrong sending that."} You can also reach us directly at{" "}
-                <a href="mailto:ynlrealtors@gmail.com" className="hover-gold" style={{ color: "#F7F4EE" }}>
+            <div style={infoRowStyle}>
+              <dt style={infoLabelStyle}>Hours</dt>
+              <dd style={infoValueStyle}>
+                Mon–Sat, 9:00am–5:00pm
+                <br />
+                Sunday by appointment
+              </dd>
+            </div>
+            <div style={infoRowStyle}>
+              <dt style={infoLabelStyle}>Direct</dt>
+              <dd style={{ ...infoValueStyle, display: "flex", flexDirection: "column", gap: 4 }}>
+                <a href="tel:+919717847278" className="hover-gold" style={{ color: BONE }}>
+                  +91 97178 47278
+                </a>
+                <a href="tel:+919811047278" className="hover-gold" style={{ color: BONE }}>
+                  +91 98110 47278
+                </a>
+              </dd>
+            </div>
+            <div style={infoRowStyle}>
+              <dt style={infoLabelStyle}>Email</dt>
+              <dd style={infoValueStyle}>
+                <a href="mailto:ynlrealtors@gmail.com" className="hover-gold" style={{ color: BONE }}>
                   ynlrealtors@gmail.com
                 </a>
-                .
-              </p>
-            )}
-            <p style={{ margin: 0, fontSize: 12, lineHeight: 1.6, color: "rgba(247,244,238,.4)" }}>
-              Held in confidence. Never shared with developers or third-party portals.
-            </p>
-          </form>
+              </dd>
+            </div>
+          </dl>
+          <OfficeMap />
         </div>
+
+        <form
+          onSubmit={onSubmit}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 28,
+            background: INK_2,
+            border: "1px solid rgba(247,244,238,.12)",
+            padding: "clamp(28px, 3.4vw, 48px)",
+          }}
+        >
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            <p style={{ margin: 0, fontFamily: SERIF, fontSize: 36, lineHeight: 1.1, color: BONE }}>Request the portfolio</p>
+            <p style={{ margin: 0, fontSize: 14, color: "rgba(247,244,238,.62)" }}>A principal replies the same working day.</p>
+          </div>
+          <div className="split" style={{ ["--gap" as string]: "24px", ["--gap-sm" as string]: "28px" }}>
+            <label style={fieldStyle}>
+              <span style={fieldLabelStyle}>Name</span>
+              <input type="text" name="fi-sender-fullName" autoComplete="name" required style={fieldInputStyle} />
+            </label>
+            <label style={fieldStyle}>
+              <span style={fieldLabelStyle}>Phone</span>
+              <input type="tel" name="fi-sender-phone" autoComplete="tel" style={fieldInputStyle} />
+            </label>
+          </div>
+          <label style={fieldStyle}>
+            <span style={fieldLabelStyle}>Email</span>
+            <input type="email" name="fi-sender-email" autoComplete="email" required style={fieldInputStyle} />
+          </label>
+          <label style={fieldStyle}>
+            <span style={fieldLabelStyle}>I am here for</span>
+            <select name="fi-select-interest" style={{ ...fieldInputStyle, background: INK_2 }}>
+              <option>Buying land or an estate</option>
+              <option>Selling a property</option>
+              <option>Portfolio &amp; investment advice</option>
+              <option>Commercial space</option>
+              <option>Developer partnership</option>
+              <option>A premium rental</option>
+              <option>Legal Cell — documentation or a dispute</option>
+            </select>
+          </label>
+          <label style={fieldStyle}>
+            <span style={fieldLabelStyle}>What are you looking for</span>
+            <textarea name="fi-text-message" rows={4} style={{ ...fieldInputStyle, resize: "vertical" }} />
+          </label>
+          <button
+            type="submit"
+            disabled={status === "sending"}
+            className="btn-gold"
+            style={{
+              ...buttonBase,
+              marginTop: 8,
+              padding: "20px 32px",
+              background: GOLD,
+              border: `1px solid ${GOLD}`,
+              color: INK,
+              fontFamily: "var(--font-jost), sans-serif",
+              cursor: status === "sending" ? "wait" : "pointer",
+              opacity: status === "sending" ? 0.7 : 1,
+            }}
+          >
+            {status === "sending" ? "Sending…" : status === "success" ? "Enquiry sent" : "Send enquiry"}
+          </button>
+          {status === "success" && (
+            <p style={{ margin: 0, fontSize: 14, color: GOLD }}>
+              Received — a principal will reply from ynlrealtors@gmail.com today.
+            </p>
+          )}
+          {status === "error" && (
+            <p style={{ margin: 0, fontSize: 14, color: "#E08A45" }}>
+              {errorMessage || "Something went wrong sending that."} You can also reach us directly at{" "}
+              <a href="mailto:ynlrealtors@gmail.com" className="hover-gold" style={{ color: BONE }}>
+                ynlrealtors@gmail.com
+              </a>
+              .
+            </p>
+          )}
+          <p style={{ margin: 0, fontSize: 12, lineHeight: 1.6, color: "rgba(247,244,238,.5)" }}>
+            Held in confidence. Never shared with developers or third-party portals.
+          </p>
+        </form>
       </div>
     </section>
   );
 }
 
+// Stylised plan of the two offices in the survey-sheet style — swap for a live map when available.
+function OfficeMap() {
+  return (
+    <figure
+      style={{ margin: 0, display: "flex", flexDirection: "column", gap: 12, padding: 20, border: "1px solid rgba(201,162,39,.38)", background: "#17160F" }}
+    >
+      <svg viewBox="0 0 560 300" width="100%" style={{ display: "block" }} fill="none" role="img" aria-label="Office locations: S-22, Sector 12 and 3E-8, NIT, Faridabad">
+        <path d="M0 200 L560 120 M0 220 L560 140" stroke={GOLD} strokeOpacity={0.6} />
+        <path d="M300 0 L280 300 M318 0 L298 300" stroke={GOLD} strokeOpacity={0.45} />
+        <path
+          d="M40 20 L250 10 L260 150 L50 170 Z M340 20 L540 30 L535 100 L335 125 Z M60 240 L270 210 L265 300 L60 300 Z M320 180 L540 150 L545 300 L310 300 Z"
+          stroke={GOLD}
+          strokeOpacity={0.3}
+        />
+        <circle cx={150} cy={95} r={7} fill={GOLD} />
+        <circle cx={150} cy={95} r={16} stroke={GOLD} />
+        <circle cx={440} cy={235} r={7} fill={GOLD} />
+        <circle cx={440} cy={235} r={16} stroke={GOLD} />
+        <g fontFamily="var(--font-jost), sans-serif" fontSize={12} letterSpacing={2} fill={BONE}>
+          <text x={174} y={92}>S-22, SECTOR 12</text>
+          <text x={340} y={272}>3E-8, NIT</text>
+        </g>
+      </svg>
+      <figcaption style={{ display: "flex", justifyContent: "space-between", fontSize: 10, letterSpacing: ".3em", textTransform: "uppercase", color: "rgba(247,244,238,.55)" }}>
+        <span>Not to scale</span>
+        <span>Faridabad</span>
+      </figcaption>
+    </figure>
+  );
+}
+
+const infoRule = "1px solid rgba(247,244,238,.16)";
+
+const infoRowStyle: CSSProperties = {
+  display: "grid",
+  gridTemplateColumns: "minmax(0, 140px) minmax(0, 1fr)",
+  gap: 24,
+  padding: "24px 0",
+  borderBottom: infoRule,
+};
+
 const infoLabelStyle: CSSProperties = {
   margin: 0,
+  paddingTop: 4,
   fontSize: 11,
-  letterSpacing: ".24em",
+  letterSpacing: ".26em",
   textTransform: "uppercase",
-  color: "rgba(247,244,238,.42)",
+  color: "rgba(247,244,238,.58)",
 };
 
 const infoValueStyle: CSSProperties = {
   margin: 0,
-  fontSize: 16,
-  lineHeight: 1.6,
-  color: "#F7F4EE",
+  fontSize: 17,
+  lineHeight: 1.7,
+  color: BONE,
 };

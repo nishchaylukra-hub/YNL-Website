@@ -1,3 +1,5 @@
+import { BONE, GOLD, INK, SERIF, eyebrow, sectionPad, smallCaps } from "../tokens";
+
 const quotes = [
   {
     text: "They brought us a parcel that never touched the market — and a title file our lawyers barely had to touch.",
@@ -13,36 +15,33 @@ const quotes = [
 
 export function Testimonials() {
   return (
-    <section style={{ background: "#EAE4D8", padding: "104px 44px" }}>
-      <div
-        style={{
-          maxWidth: 1240,
-          margin: "0 auto",
-          display: "grid",
-          gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-          gap: 64,
-        }}
-      >
-        {quotes.map((q) => (
-          <figure key={q.name} style={{ margin: 0, display: "flex", flexDirection: "column", gap: 26 }}>
+    <section
+      className="wrap"
+      style={{ display: "flex", flexDirection: "column", gap: 64, paddingTop: sectionPad, paddingBottom: sectionPad, background: INK }}
+    >
+      <p style={eyebrow(GOLD)}>§ 04 — In their words</p>
+      <div className="split" style={{ ["--gap" as string]: "96px" }}>
+        {quotes.map((q, i) => (
+          <figure key={q.name} className={i === 1 ? "offset-down" : undefined} style={{ margin: 0, display: "flex", flexDirection: "column", gap: 32 }}>
+            <span aria-hidden="true" style={{ fontFamily: SERIF, fontSize: 96, lineHeight: 0.5, height: 40, color: GOLD }}>
+              &ldquo;
+            </span>
             <blockquote
               style={{
                 margin: 0,
-                fontFamily: "var(--font-cormorant), Georgia, serif",
+                fontFamily: SERIF,
                 fontWeight: 300,
-                fontSize: "clamp(24px, 2.3vw, 34px)",
-                lineHeight: 1.4,
-                color: "#14130F",
+                fontSize: "clamp(26px, 2.5vw, 36px)",
+                lineHeight: 1.35,
+                color: BONE,
                 textWrap: "pretty",
               }}
             >
-              &ldquo;{q.text}&rdquo;
+              {q.text}
             </blockquote>
-            <figcaption style={{ display: "flex", flexDirection: "column", gap: 5, borderTop: "1px solid rgba(20,19,15,.2)", paddingTop: 18 }}>
-              <p style={{ margin: 0, fontSize: 14, color: "#14130F" }}>{q.name}</p>
-              <p style={{ margin: 0, fontSize: 12, letterSpacing: ".16em", textTransform: "uppercase", color: "#8C7A4B" }}>
-                {q.org}
-              </p>
+            <figcaption style={{ display: "flex", flexDirection: "column", gap: 6, paddingTop: 20, borderTop: "1px solid rgba(247,244,238,.16)" }}>
+              <span style={{ fontSize: 14, color: BONE }}>{q.name}</span>
+              <span style={smallCaps("rgba(247,244,238,.6)")}>{q.org}</span>
             </figcaption>
           </figure>
         ))}

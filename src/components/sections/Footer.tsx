@@ -1,48 +1,68 @@
 import Image from "next/image";
+import Link from "next/link";
+import type { CSSProperties } from "react";
+import { INK_3, smallCaps } from "../tokens";
 
 export function Footer() {
   return (
-    <footer style={{ background: "#0F0E0B", padding: "52px 44px", borderTop: "1px solid rgba(247,244,238,.1)" }}>
-      <div
-        style={{
-          maxWidth: 1240,
-          margin: "0 auto",
-          display: "flex",
-          flexWrap: "wrap",
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: 28,
-        }}
-      >
+    <footer
+      className="wrap"
+      style={{ display: "flex", flexDirection: "column", gap: 56, paddingTop: 72, paddingBottom: 48, background: INK_3 }}
+    >
+      <div className="split" style={{ ["--cols" as string]: "minmax(0, 1.4fr) repeat(3, minmax(0, 1fr))", ["--gap" as string]: "48px" }}>
         <Image
           src="/assets/ynl-logo-mark.png"
           alt="YNL Realtors"
-          height={28}
-          width={105}
-          style={{ height: 28, width: "auto", display: "block" }}
+          height={52}
+          width={195}
+          style={{ height: 52, width: "auto", display: "block", alignSelf: "start" }}
         />
-        <nav style={{ display: "flex", flexWrap: "wrap", gap: 26 }}>
-          <a href="#services" className="hover-gold" style={footerLinkStyle}>
-            Services
-          </a>
-          <a href="#about" className="hover-gold" style={footerLinkStyle}>
-            About us
-          </a>
-          <a href="#contact" className="hover-gold" style={footerLinkStyle}>
-            Contact details
-          </a>
+        <div style={columnStyle}>
+          <span style={headingStyle}>Offices</span>
+          <span>S-22, Sector 12, Faridabad</span>
+          <span>3E-8, NIT, Faridabad</span>
+        </div>
+        <div style={columnStyle}>
+          <span style={headingStyle}>Hours</span>
+          <span>Mon–Sat, 9:00am–5:00pm</span>
+          <span>Sunday by appointment</span>
+        </div>
+        <nav style={columnStyle}>
+          <span style={headingStyle}>Site</span>
+          <Link href="/#services" className="hover-gold" style={linkStyle}>Services</Link>
+          <Link href="/about" className="hover-gold" style={linkStyle}>About &amp; Legal Cell</Link>
+          <Link href="/contact" className="hover-gold" style={linkStyle}>Contact</Link>
         </nav>
-        <p style={{ margin: 0, fontSize: 12, letterSpacing: ".14em", color: "rgba(247,244,238,.38)" }}>
-          © 2026 YNL Realtors · Land. Legacy. Luxury.
-        </p>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "space-between",
+          gap: 16,
+          paddingTop: 24,
+          borderTop: "1px solid rgba(247,244,238,.1)",
+          fontSize: 12,
+          letterSpacing: ".14em",
+          color: "rgba(247,244,238,.5)",
+        }}
+      >
+        <span>© 2026 YNL Realtors</span>
+        <span>Land. Legacy. Luxury.</span>
       </div>
     </footer>
   );
 }
 
-const footerLinkStyle = {
-  fontSize: 12,
-  letterSpacing: ".18em",
-  textTransform: "uppercase" as const,
-  color: "rgba(247,244,238,.6)",
+const columnStyle: CSSProperties = {
+  display: "flex",
+  flexDirection: "column",
+  gap: 12,
+  fontSize: 14,
+  lineHeight: 1.6,
+  color: "rgba(247,244,238,.8)",
 };
+
+const headingStyle: CSSProperties = { ...smallCaps("rgba(247,244,238,.5)"), letterSpacing: ".26em" };
+
+const linkStyle: CSSProperties = { color: "rgba(247,244,238,.8)" };

@@ -1,62 +1,81 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { CSSProperties } from "react";
+import { BONE, GOLD, INK, buttonBase } from "../tokens";
 
-export function Header() {
+type Page = "home" | "about" | "contact";
+
+const links: { href: string; label: string; page?: Page }[] = [
+  { href: "/#services", label: "Services" },
+  { href: "/about", label: "About", page: "about" },
+  { href: "/about#legal", label: "Legal Cell" },
+  { href: "/contact", label: "Contact", page: "contact" },
+];
+
+export function Header({ current = "home" }: { current?: Page }) {
   return (
     <header
+      className="wrap"
       style={{
-        position: "fixed",
+        position: "sticky",
         top: 0,
-        left: 0,
-        right: 0,
         zIndex: 40,
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
         gap: 32,
-        padding: "16px 44px",
-        background: "rgba(20,19,15,.88)",
+        paddingBlock: 20,
+        background: "rgba(20,19,15,.92)",
         backdropFilter: "blur(16px)",
-        borderBottom: "1px solid rgba(247,244,238,.12)",
+        borderBottom: "1px solid rgba(247,244,238,.1)",
       }}
     >
-      <a href="#top" style={{ display: "flex", alignItems: "center", gap: 14 }}>
-        <Image src="/assets/ynl-logo-mark.png" alt="YNL Realtors" height={32} width={120} style={{ height: 32, width: "auto", display: "block" }} priority />
-      </a>
-      <nav style={{ display: "flex", alignItems: "center", gap: 4 }}>
-        <a href="#services" className="hover-gold" style={navLinkStyle}>
-          Services
-        </a>
-        <a href="#about" className="hover-gold" style={navLinkStyle}>
-          About Us
-        </a>
-        <a href="#contact" className="hover-gold" style={navLinkStyle}>
-          Contact Details
-        </a>
-        <a href="#contact" className="btn-gold" style={ctaStyle}>
+      <Link href="/" style={{ display: "flex" }} aria-label="YNL Realtors — home">
+        <Image
+          src="/assets/ynl-logo-mark.png"
+          alt="YNL Realtors — Land. Legacy. Luxury."
+          height={44}
+          width={165}
+          style={{ height: 40, width: "auto", display: "block" }}
+          preload
+        />
+      </Link>
+      <nav style={{ display: "flex", alignItems: "center", gap: 8 }}>
+        <div className="hide-sm" style={{ display: "flex", gap: 8 }}>
+          {links.map((l) => {
+            const active = l.page === current;
+            return (
+              <Link
+                key={l.label}
+                href={l.href}
+                className="hover-gold"
+                aria-current={active ? "page" : undefined}
+                style={{
+                  ...navLinkStyle,
+                  color: active ? GOLD : BONE,
+                  boxShadow: active ? `inset 0 -1px 0 ${GOLD}` : undefined,
+                }}
+              >
+                {l.label}
+              </Link>
+            );
+          })}
+        </div>
+        <Link
+          href="/contact"
+          className="btn-gold"
+          style={{ ...buttonBase, marginLeft: 16, padding: "15px 26px", background: GOLD, color: INK, border: `1px solid ${GOLD}` }}
+        >
           Book a viewing
-        </a>
+        </Link>
       </nav>
     </header>
   );
 }
 
 const navLinkStyle: CSSProperties = {
-  fontSize: 13,
-  letterSpacing: ".18em",
-  textTransform: "uppercase",
-  color: "#F7F4EE",
-  padding: "12px 18px",
-};
-
-const ctaStyle: CSSProperties = {
-  marginLeft: 16,
   fontSize: 12,
   letterSpacing: ".2em",
   textTransform: "uppercase",
-  color: "#14130F",
-  background: "#C9A227",
-  padding: "14px 24px",
-  fontWeight: 500,
-  border: "1px solid #C9A227",
+  padding: "14px 18px",
 };

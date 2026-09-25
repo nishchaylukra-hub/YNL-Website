@@ -1,6 +1,6 @@
 # YNL Realtors
 
-Single-page marketing site for YNL Realtors, built with Next.js (App Router, Turbopack) + React + TypeScript.
+Marketing site for YNL Realtors (home, about & Legal Cell, contact), built with Next.js (App Router, Turbopack) + React + TypeScript.
 
 ## Getting started
 
@@ -20,10 +20,11 @@ Open [http://localhost:3000](http://localhost:3000) to view it.
 
 ## Project structure
 
-- `src/app/page.tsx` — the page, composed from `src/components/sections/`
-  (`Header`, `Hero`, `Proof`, `Services`, `About`, `Testimonials`, `Contact`, `Footer`)
-- `src/app/globals.css` — global styles and hover-state utility classes; most
-  styling is inline React style objects
+- `src/app/page.tsx`, `src/app/about/page.tsx`, `src/app/contact/page.tsx` — the
+  routes, composed from `src/components/sections/` and `src/components/about/`
+- `src/components/tokens.ts` — brand colours, fonts and shared style helpers
+- `src/app/globals.css` — global styles, hover states and responsive layout
+  classes; most styling is inline React style objects
 - `public/assets/` — image assets
 
 See `CLAUDE.md` for more detail on the architecture and conventions.

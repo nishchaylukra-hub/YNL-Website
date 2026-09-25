@@ -1,129 +1,76 @@
+import Link from "next/link";
+import { SurveyPlate } from "../SurveyPlate";
+import { BONE, GOLD, INK, SERIF, buttonBase, smallCaps } from "../tokens";
+
+const facts: { value: string; label: string; italic?: boolean }[] = [
+  { value: "62", label: "Live exclusive mandates" },
+  { value: "In-house", label: "Legal Cell", italic: true },
+  { value: "Two", label: "Offices in Faridabad" },
+];
+
 export function Hero() {
   return (
     <section
       id="top"
+      className="wrap split"
       style={{
-        position: "relative",
-        height: "100vh",
-        minHeight: 620,
-        overflow: "hidden",
-        background: "linear-gradient(160deg, #3a3226 0%, #14130F 62%, #0c0b08 100%)",
+        ["--cols" as string]: "minmax(0, 1.12fr) minmax(0, .88fr)",
+        alignItems: "end",
+        paddingTop: "clamp(56px, 7vw, 96px)",
+        paddingBottom: "clamp(64px, 7vw, 104px)",
+        background: INK,
       }}
     >
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          pointerEvents: "none",
-          background:
-            "linear-gradient(to bottom, rgba(20,19,15,.5) 0%, rgba(20,19,15,0) 24%, rgba(20,19,15,0) 46%, rgba(20,19,15,.78) 100%)",
-        }}
-      />
-
-      <div
-        style={{
-          position: "absolute",
-          left: 0,
-          right: 0,
-          bottom: 0,
-          padding: "0 44px 52px",
-          display: "flex",
-          alignItems: "flex-end",
-          justifyContent: "space-between",
-          gap: 48,
-        }}
-      >
-        <div style={{ maxWidth: 640 }}>
-          <p style={{ margin: "0 0 18px", fontSize: 11, letterSpacing: ".42em", textTransform: "uppercase", color: "#C9A227" }}>
-            Land · Legacy · Luxury
-          </p>
-          <h1
-            style={{
-              margin: 0,
-              fontFamily: "var(--font-cormorant), Georgia, serif",
-              fontWeight: 300,
-              fontSize: "clamp(44px, 5.2vw, 84px)",
-              lineHeight: 1.03,
-              letterSpacing: "-.01em",
-              color: "#F7F4EE",
-              textWrap: "balance",
-            }}
-          >
-            Addresses that
-            <br />
-            <em style={{ fontStyle: "italic", color: "#C9A227" }}>outlive</em> the market.
-          </h1>
-          <p
-            style={{
-              margin: "26px 0 0",
-              fontSize: 17,
-              lineHeight: 1.65,
-              color: "rgba(247,244,238,.72)",
-              maxWidth: 470,
-              textWrap: "pretty",
-            }}
-          >
-            We place land, penthouses and prime commercial floors with the people and institutions who hold them for
-            generations. Off-market first. Always.
-          </p>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 14, marginTop: 34 }}>
-            <a
-              href="#contact"
-              className="btn-gold"
-              style={{
-                fontSize: 12,
-                letterSpacing: ".2em",
-                textTransform: "uppercase",
-                color: "#14130F",
-                background: "#C9A227",
-                padding: "17px 30px",
-                fontWeight: 500,
-              }}
-            >
-              Request the portfolio
-            </a>
-            <a
-              href="#services"
-              className="btn-outline"
-              style={{
-                fontSize: 12,
-                letterSpacing: ".2em",
-                textTransform: "uppercase",
-                color: "#F7F4EE",
-                border: "1px solid rgba(247,244,238,.34)",
-                padding: "17px 30px",
-              }}
-            >
-              What we do
-            </a>
-          </div>
-        </div>
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 26, paddingBottom: 6 }}>
-          <div style={{ textAlign: "right" }}>
-            <p style={{ margin: 0, fontFamily: "var(--font-cormorant), Georgia, serif", fontSize: 42, color: "#F7F4EE", lineHeight: 1 }}>
-              62
-            </p>
-            <p style={{ margin: "6px 0 0", fontSize: 11, letterSpacing: ".24em", textTransform: "uppercase", color: "rgba(247,244,238,.5)" }}>
-              Live exclusive mandates
-            </p>
-          </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: 36 }}>
+        <p style={{ margin: 0, display: "flex", alignItems: "center", gap: 16, ...smallCaps(GOLD), letterSpacing: ".42em" }}>
+          <span style={{ width: 40, height: 1, background: GOLD, display: "block" }} />
+          Faridabad · Since the early 1980s
+        </p>
+        <h1
+          style={{
+            margin: 0,
+            fontFamily: SERIF,
+            fontWeight: 300,
+            fontSize: "clamp(52px, 7.2vw, 104px)",
+            lineHeight: 0.98,
+            letterSpacing: "-.015em",
+            color: BONE,
+            textWrap: "balance",
+          }}
+        >
+          Addresses that <em style={{ fontStyle: "italic", color: GOLD }}>outlive</em> the market.
+        </h1>
+        <p style={{ margin: 0, fontSize: 18, lineHeight: 1.7, color: "rgba(247,244,238,.74)", maxWidth: 500, textWrap: "pretty" }}>
+          We place land, penthouses and prime commercial floors with the people and institutions who hold them for
+          generations. Off-market first. Always.
+        </p>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 14 }}>
+          <Link href="/contact" className="btn-gold" style={{ ...buttonBase, background: GOLD, color: INK, border: `1px solid ${GOLD}` }}>
+            Request the portfolio
+          </Link>
           <a
             href="#services"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 12,
-              fontSize: 11,
-              letterSpacing: ".24em",
-              textTransform: "uppercase",
-              color: "rgba(247,244,238,.6)",
-              animation: "cue 2.6s ease-in-out infinite",
-            }}
+            className="btn-outline"
+            style={{ ...buttonBase, fontWeight: 400, color: BONE, border: "1px solid rgba(247,244,238,.34)" }}
           >
-            Scroll <span style={{ width: 1, height: 34, background: "rgba(247,244,238,.4)", display: "block" }} />
+            What we do
           </a>
         </div>
+        <div
+          className="ruled-cols"
+          style={{ ["--n" as string]: 3, marginTop: 20, borderTop: "1px solid rgba(247,244,238,.14)", ["--rule" as string]: "rgba(247,244,238,.14)" }}
+        >
+          {facts.map((f) => (
+            <div key={f.label} style={{ display: "flex", flexDirection: "column", gap: 6, paddingTop: 22 }}>
+              <span style={{ fontFamily: SERIF, fontSize: 36, lineHeight: 1, color: BONE, fontStyle: f.italic ? "italic" : undefined }}>
+                {f.value}
+              </span>
+              <span style={smallCaps("rgba(247,244,238,.6)")}>{f.label}</span>
+            </div>
+          ))}
+        </div>
       </div>
+      <SurveyPlate />
     </section>
   );
 }
