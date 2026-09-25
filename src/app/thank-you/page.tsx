@@ -6,6 +6,7 @@ import { Footer } from "@/components/sections/Footer";
 export const metadata: Metadata = {
   title: "Thank You — YNL Realtors",
   description: "Your enquiry has been received. A principal from YNL Realtors will reply the same working day.",
+  robots: { index: false, follow: true },
 };
 
 export default function ThankYouPage() {

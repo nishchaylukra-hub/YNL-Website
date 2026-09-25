@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "About & Legal Cell — YNL Realtors",
   description:
     "Four decades of real estate in Faridabad since the early 1980s, with an in-house Legal Cell for title checks, agreements, registration and civil disputes.",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {

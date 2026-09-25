@@ -19,6 +19,19 @@ declare global {
   }
 }
 
+// Forminit only accepts E.164 phone numbers (+919717847278). Visitors type local formats like
+// "97178 47278", "097178-47278" or "+91 97178 47278", so normalise; bare 10-digit numbers are taken as Indian.
+function toE164(input: string): string | null {
+  const hasPlus = input.startsWith("+");
+  let digits = input.replace(/\D/g, "");
+  if (!hasPlus) {
+    if (digits.startsWith("00")) digits = digits.slice(2);
+    else if (digits.length === 11 && digits.startsWith("0")) digits = "91" + digits.slice(1);
+    else if (digits.length === 10) digits = "91" + digits;
+  }
+  return /^[1-9]\d{7,14}$/.test(digits) ? `+${digits}` : null;
+}
+
 const fieldStyle: CSSProperties = { display: "flex", flexDirection: "column", gap: 10 };
 
 const fieldLabelStyle: CSSProperties = {
@@ -52,9 +65,24 @@ export function Contact() {
       return;
     }
 
+    const data = new FormData(form);
+    const rawPhone = String(data.get("fi-sender-phone") ?? "").trim();
+    if (rawPhone) {
+      const phone = toE164(rawPhone);
+      if (!phone) {
+        setStatus("error");
+        setErrorMessage("Please check the phone number — e.g. 97178 47278 or +91 97178 47278.");
+        return;
+      }
+      data.set("fi-sender-phone", phone);
+    } else {
+      // Phone is optional — send no phone block rather than an empty one.
+      data.delete("fi-sender-phone");
+    }
+
     setStatus("sending");
     const forminit = new window.Forminit();
-    const { redirectUrl, error } = await forminit.submit(FORMINIT_FORM_ID, new FormData(form));
+    const { redirectUrl, error } = await forminit.submit(FORMINIT_FORM_ID, data);
 
     if (error) {
       setStatus("error");

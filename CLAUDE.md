@@ -30,7 +30,14 @@ active nav item) and `Footer`:
   `AboutCta` from `src/components/about/`.
 - `/contact` (`src/app/contact/page.tsx`) — `Contact`, the only `"use client"` section: details, office map
   and the Forminit enquiry form (form id in `Contact.tsx`; the SDK script loads in `layout.tsx`).
-- `/thank-you` — Forminit's post-submit redirect target.
+- `/thank-you` — Forminit's post-submit redirect target (`noindex`, disallowed in robots.txt).
+- `/sitemap` (`src/app/sitemap/page.tsx`) — human-readable HTML sitemap.
+
+### SEO files
+`src/lib/site.ts` holds `SITE_URL` (the canonical origin, `https://www.ynlrealtors.in`) and the `pages` list.
+That list drives both `src/app/sitemap.ts` (→ `/sitemap.xml`) and the HTML sitemap, so add any new page there.
+`src/app/robots.ts` generates `/robots.txt`. `layout.tsx` sets `metadataBase` from `SITE_URL`; each page sets
+its own `alternates.canonical`.
 
 ### Styling conventions
 - Brand tokens (colours, `SERIF` font stack, label/heading/button style helpers, `sectionPad`) live in
@@ -50,7 +57,8 @@ Fiber scene here; it and the `three`/`@react-three/*` dependencies were removed.
 ### Design assets
 - `public/assets/ynl-logo-mark.png` — the only real image asset; pulled from the `claude_design` project
   ("Interactive realty homepage design", project id `9a443efa-2ebf-4c8a-9c5a-a033e843e5b0`) via the DesignSync
-  MCP. Team portraits are still placeholders (`src/components/ImagePlaceholder.tsx`) — swap those for real
+  MCP. The favicon set (`src/app/favicon.ico`, `icon.png`, `apple-icon.png`) is the logo's "Y" monogram cropped
+  from that file, in gold on an `INK` tile. Team portraits are still placeholders (`src/components/ImagePlaceholder.tsx`) — swap those for real
   photos in `sections/About.tsx` and `about/Principals.tsx` when available. The office map in `Contact.tsx`
   is a stylised SVG, not a real map.
 - Fonts (Cormorant Garamond, Jost) are loaded via `next/font/google` in `src/app/layout.tsx` as CSS variables

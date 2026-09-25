@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Jost } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import { SITE_URL } from "@/lib/site";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -19,6 +20,7 @@ const jost = Jost({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "YNL Realtors — Trusted Real Estate in Faridabad",
   description:
     "YNL Realtors has served Faridabad since the early 1980s in agriculture, residential and commercial real estate, with an in-house legal cell for documentation and civil disputes.",

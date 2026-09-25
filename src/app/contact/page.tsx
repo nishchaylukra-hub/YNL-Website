@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Contact — YNL Realtors",
   description:
     "Book a viewing or request the portfolio. Offices at S-22, Sector 12 and 3E-8, NIT, Faridabad. A principal replies the same working day.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {

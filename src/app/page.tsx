@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Header } from "@/components/sections/Header";
 import { Hero } from "@/components/sections/Hero";
 import { Proof } from "@/components/sections/Proof";
@@ -6,6 +7,10 @@ import { About } from "@/components/sections/About";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { ContactBand } from "@/components/sections/ContactBand";
 import { Footer } from "@/components/sections/Footer";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 const SHOW_PROOF = true;
 
