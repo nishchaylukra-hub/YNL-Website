@@ -1,4 +1,4 @@
-import { GOLD, RADIUS } from "./tokens";
+import { GOLD } from "./tokens";
 
 // The brand's survey-sheet motif: hairline plot boundaries drawn like a land-records map,
 // a nod to the firm's start in agriculture land. Illustrative only — not a real parcel.
@@ -13,7 +13,6 @@ export function SurveyPlate() {
         gap: 14,
         padding: "clamp(16px, 1.5vw, 22px)",
         border: "1px solid rgba(201,162,39,.38)",
-        borderRadius: RADIUS,
         background: "#17160F",
       }}
     >

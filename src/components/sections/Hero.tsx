@@ -22,23 +22,8 @@ export function Hero() {
       }}
     >
       <div style={{ display: "flex", flexDirection: "column", gap: "clamp(24px, 2.5vw, 36px)" }}>
-        <p
-          style={{
-            margin: 0,
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 12,
-            width: "fit-content",
-            padding: "8px 18px 8px 10px",
-            borderRadius: 999,
-            border: "1px solid rgba(201,162,39,.45)",
-            background: "rgba(201,162,39,.08)",
-            ...smallCaps(GOLD),
-            letterSpacing: "clamp(.18em, 2vw, .3em)",
-            lineHeight: 1.4,
-          }}
-        >
-          <span style={{ width: 8, height: 8, flexShrink: 0, borderRadius: 999, background: GOLD, display: "block" }} />
+        <p style={{ margin: 0, display: "flex", alignItems: "center", gap: 16, ...smallCaps(GOLD), letterSpacing: "clamp(.26em, 3vw, .42em)", lineHeight: 1.6 }}>
+          <span style={{ width: 32, height: 1, flexShrink: 0, background: GOLD, display: "block" }} />
           Faridabad · Since the early 1980s
         </p>
         <h1

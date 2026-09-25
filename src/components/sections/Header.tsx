@@ -49,12 +49,12 @@ export function Header({ current = "home" }: { current?: Page }) {
               <Link
                 key={l.label}
                 href={l.href}
-                className="hover-gold nav-pill"
+                className="hover-gold"
                 aria-current={active ? "page" : undefined}
                 style={{
                   ...navLinkStyle,
                   color: active ? GOLD : BONE,
-                  background: active ? "rgba(201,162,39,.12)" : undefined,
+                  boxShadow: active ? `inset 0 -1px 0 ${GOLD}` : undefined,
                 }}
               >
                 {l.label}

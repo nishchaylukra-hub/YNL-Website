@@ -2,7 +2,7 @@
 
 import { useState, type CSSProperties, type FormEvent } from "react";
 import { ArrowIcon, IconBadge } from "../Icons";
-import { BONE, GOLD, INK, INK_2, RADIUS, SERIF, blockGap, eyebrow, iconButton, sectionPad } from "../tokens";
+import { BONE, GOLD, INK, INK_2, SERIF, blockGap, eyebrow, iconButton, sectionPad } from "../tokens";
 
 const FORMINIT_FORM_ID = "fdtcek1uzvk";
 
@@ -175,7 +175,6 @@ export function Contact() {
             gap: 28,
             background: INK_2,
             border: "1px solid rgba(247,244,238,.12)",
-            borderRadius: RADIUS,
             padding: "clamp(24px, 3.4vw, 48px)",
           }}
         >
@@ -258,7 +257,7 @@ export function Contact() {
 function OfficeMap() {
   return (
     <figure
-      style={{ margin: 0, display: "flex", flexDirection: "column", gap: 12, padding: "clamp(14px, 1.4vw, 20px)", border: "1px solid rgba(201,162,39,.38)", borderRadius: RADIUS, background: "#17160F" }}
+      style={{ margin: 0, display: "flex", flexDirection: "column", gap: 12, padding: "clamp(14px, 1.4vw, 20px)", border: "1px solid rgba(201,162,39,.38)", background: "#17160F" }}
     >
       <svg viewBox="0 0 560 300" width="100%" style={{ display: "block" }} fill="none" role="img" aria-label="Office locations: S-22, Sector 12 and 3E-8, NIT, Faridabad">
         <path d="M0 200 L560 120 M0 220 L560 140" stroke={GOLD} strokeOpacity={0.6} />

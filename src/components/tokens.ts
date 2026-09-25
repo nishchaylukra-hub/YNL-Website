@@ -11,9 +11,6 @@ export const GOLD_DEEP = "#8A6D12"; // gold that passes contrast on sand, for la
 export const BRONZE = "#6E5F37"; // labels on light grounds (gold fails contrast there)
 export const LOAM = "#5E594E"; // body copy on light grounds
 
-// Corner radius for panels, plates and image frames; buttons, tags and icon badges are full pills.
-export const RADIUS = "clamp(18px, 1.8vw, 28px)";
-
 export const SERIF = "var(--font-cormorant), Georgia, serif";
 
 export const sectionPad = "clamp(64px, 9vw, 136px)";
@@ -47,7 +44,7 @@ export const buttonBase: CSSProperties = {
   textTransform: "uppercase",
   fontWeight: 500,
   textAlign: "center",
-  borderRadius: 999,
+  borderRadius: 999, // buttons are the only rounded elements; content stays square
 };
 
 // Pill button with a round arrow badge on the right (pair with <ArrowBadge />).

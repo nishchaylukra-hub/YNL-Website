@@ -276,20 +276,7 @@ textarea {
   }
 }
 
-/* pills: tags, arrow badges, pill links */
-.chip {
-  display: inline-flex;
-  align-items: center;
-  padding: 6px 13px;
-  border-radius: 999px;
-  border: 1px solid currentColor;
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  line-height: 1.4;
-  white-space: nowrap;
-}
-
+/* round icon badges (arrow on primary buttons, phone/mail in the contact band) */
 .pill-icon {
   display: inline-flex;
   align-items: center;
@@ -299,43 +286,12 @@ textarea {
   transition: transform 0.2s ease;
 }
 
-.pill-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  width: fit-content;
-  padding: 5px 5px 5px 20px;
-  border-radius: 999px;
-  border: 1px solid currentColor;
-  font-size: 12px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  transition: background 0.2s ease;
-}
-
-.pill-link:hover .pill-icon,
 .btn-gold:hover .pill-icon,
 .btn-ink:hover .pill-icon,
 .icon-row:hover .pill-icon {
   transform: translateX(3px);
 }
 
-.pill-link.on-light:hover {
-  background: rgba(20, 19, 15, 0.06);
-}
-
-.pill-link.on-dark:hover {
-  background: rgba(201, 162, 39, 0.12);
-}
-
-.nav-pill {
-  border-radius: 999px;
-  transition: background 0.2s ease;
-}
-
-.nav-pill:hover {
-  background: rgba(247, 244, 238, 0.07);
-}
 
 .sr-only {
   position: absolute;

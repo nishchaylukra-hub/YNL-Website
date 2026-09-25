@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import { BRONZE, RADIUS } from "./tokens";
+import { BRONZE } from "./tokens";
 
 export function ImagePlaceholder({ label, style }: { label: string; style?: CSSProperties }) {
   return (
@@ -11,7 +11,6 @@ export function ImagePlaceholder({ label, style }: { label: string; style?: CSSP
         height: 340,
         background: "repeating-linear-gradient(135deg, #EAE4D8 0 1px, #F1ECE2 1px 14px)",
         border: "1px solid rgba(20,19,15,.12)",
-        borderRadius: RADIUS,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
