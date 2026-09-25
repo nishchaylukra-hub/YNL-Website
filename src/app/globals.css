@@ -1,0 +1,71 @@
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #14130f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-jost), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: #c9a227;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #e0be45;
+}
+
+::selection {
+  background: #c9a227;
+  color: #14130f;
+}
+
+input,
+select,
+textarea {
+  font-family: var(--font-jost), system-ui, sans-serif;
+}
+
+@keyframes cue {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(7px);
+    opacity: 1;
+  }
+}
+
+/* shared interactive treatments (ported from the design's per-element hover rules) */
+.hover-gold:hover {
+  color: #c9a227 !important;
+}
+
+.hover-gold-dim:hover {
+  color: #8c7a4b !important;
+}
+
+.btn-gold:hover {
+  background: #e0be45 !important;
+  border-color: #e0be45 !important;
+}
+
+.btn-outline:hover {
+  border-color: #c9a227 !important;
+  color: #c9a227 !important;
+}
