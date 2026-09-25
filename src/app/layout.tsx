@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "YNL Realtors — Trusted Real Estate in Faridabad",
   description:
-    "YNL Realtors has served Faridabad since the early 1980s in agriculture, residential and commercial real estate, with an in-house legal cell for documentation and civil disputes.",
+    "Faridabad real estate since the early 1980s: agriculture land, homes and commercial property, backed by an in-house legal cell.",
   keywords: [
     "real estate",
     "homes",

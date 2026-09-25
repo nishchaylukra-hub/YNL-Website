@@ -178,7 +178,7 @@ export function Contact() {
           }}
         >
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-            <p style={{ margin: 0, fontFamily: SERIF, fontSize: 36, lineHeight: 1.1, color: BONE }}>Request the portfolio</p>
+            <h2 style={{ margin: 0, fontFamily: SERIF, fontWeight: 400, fontSize: 36, lineHeight: 1.1, color: BONE }}>Request the portfolio</h2>
             <p style={{ margin: 0, fontSize: 14, color: "rgba(247,244,238,.62)" }}>A principal replies the same working day.</p>
           </div>
           <div className="split" style={{ ["--gap" as string]: "24px", ["--gap-sm" as string]: "28px" }}>

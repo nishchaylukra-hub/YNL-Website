@@ -6,8 +6,9 @@ import { BONE, BRONZE, GOLD, INK, LOAM, SERIF, eyebrow, sectionPad } from "@/com
 import { pages } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Sitemap — YNL Realtors",
-  description: "Every page on the YNL Realtors website.",
+  title: "Sitemap — YNL Realtors, Faridabad Real Estate",
+  description:
+    "Every page on the YNL Realtors website: our services, four decades in Faridabad real estate, the in-house Legal Cell and how to reach our two offices.",
   alternates: { canonical: "/sitemap" },
 };
 
@@ -34,9 +35,11 @@ export default function SitemapPage() {
                 {String(i + 1).padStart(2, "0")}
               </span>
               <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                <Link href={p.path} className="hover-gold-dim" style={{ fontFamily: SERIF, fontSize: 30, lineHeight: 1.1, color: INK }}>
-                  {p.title}
-                </Link>
+                <h2 style={{ margin: 0, fontFamily: SERIF, fontWeight: 400, fontSize: 30, lineHeight: 1.1 }}>
+                  <Link href={p.path} className="hover-gold-dim" style={{ color: INK }}>
+                    {p.title}
+                  </Link>
+                </h2>
                 <p style={{ margin: 0, fontSize: 15, lineHeight: 1.7, color: LOAM }}>{p.summary}</p>
               </div>
               {p.sections ? (
