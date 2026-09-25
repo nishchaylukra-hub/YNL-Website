@@ -22,6 +22,10 @@ const csp = [
 ].join("; ");
 
 const nextConfig: NextConfig = {
+  // The HTML sitemap lives at /sitemap; serve it at the conventional /sitemap.html too.
+  async rewrites() {
+    return [{ source: "/sitemap.html", destination: "/sitemap" }];
+  },
   async headers() {
     return [
       {
