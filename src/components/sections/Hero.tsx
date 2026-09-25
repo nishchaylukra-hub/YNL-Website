@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { SurveyPlate } from "../SurveyPlate";
-import { BONE, GOLD, INK, SERIF, buttonBase, smallCaps } from "../tokens";
+import { ArrowIcon, IconBadge } from "../Icons";
+import { BONE, GOLD, INK, SERIF, buttonBase, iconButton, smallCaps } from "../tokens";
 
 const facts: { value: string; label: string; italic?: boolean }[] = [
   { value: "62", label: "Live exclusive mandates" },
@@ -21,8 +22,23 @@ export function Hero() {
       }}
     >
       <div style={{ display: "flex", flexDirection: "column", gap: "clamp(24px, 2.5vw, 36px)" }}>
-        <p style={{ margin: 0, display: "flex", alignItems: "center", gap: 16, ...smallCaps(GOLD), letterSpacing: "clamp(.26em, 3vw, .42em)", lineHeight: 1.6 }}>
-          <span style={{ width: 32, height: 1, flexShrink: 0, background: GOLD, display: "block" }} />
+        <p
+          style={{
+            margin: 0,
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 12,
+            width: "fit-content",
+            padding: "8px 18px 8px 10px",
+            borderRadius: 999,
+            border: "1px solid rgba(201,162,39,.45)",
+            background: "rgba(201,162,39,.08)",
+            ...smallCaps(GOLD),
+            letterSpacing: "clamp(.18em, 2vw, .3em)",
+            lineHeight: 1.4,
+          }}
+        >
+          <span style={{ width: 8, height: 8, flexShrink: 0, borderRadius: 999, background: GOLD, display: "block" }} />
           Faridabad · Since the early 1980s
         </p>
         <h1
@@ -44,8 +60,9 @@ export function Hero() {
           generations. Off-market first. Always.
         </p>
         <div className="btn-row" style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
-          <Link href="/contact" className="btn-gold" style={{ ...buttonBase, background: GOLD, color: INK, border: `1px solid ${GOLD}` }}>
+          <Link href="/contact" className="btn-gold" style={{ ...iconButton, background: GOLD, color: INK, border: `1px solid ${GOLD}` }}>
             Request the portfolio
+            <IconBadge background={INK} color={GOLD}><ArrowIcon /></IconBadge>
           </Link>
           <a
             href="#services"

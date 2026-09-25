@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { GOLD, INK, BONE, SERIF, buttonBase, eyebrow, smallCaps } from "../tokens";
+import { ArrowIcon, IconBadge, MailIcon, PhoneIcon } from "../Icons";
+import { GOLD, INK, BONE, SERIF, eyebrow, iconButton } from "../tokens";
 
 const direct = [
   { href: "tel:+919717847278", label: "+91 97178 47278", action: "Call" },
@@ -47,24 +48,29 @@ export function ContactBand() {
             <a
               key={d.label}
               href={d.href}
-              className="hover-gold-dim"
+              className="hover-gold-dim icon-row"
               style={{
                 display: "flex",
+                alignItems: "center",
                 justifyContent: "space-between",
                 gap: 16,
-                padding: "18px 0",
+                padding: "12px 0",
                 borderBottom: "1px solid rgba(20,19,15,.3)",
                 fontSize: "clamp(16px, 1.3vw, 18px)",
                 color: INK,
               }}
             >
               <span>{d.label}</span>
-              <span style={smallCaps(INK)}>{d.action}</span>
+              <IconBadge size={44} color={INK} border="1px solid rgba(20,19,15,.35)">
+                {d.action === "Write" ? <MailIcon size={18} /> : <PhoneIcon size={18} />}
+                <span className="sr-only">{d.action}</span>
+              </IconBadge>
             </a>
           ))}
         </div>
-        <Link href="/contact" className="btn-ink btn-block" style={{ ...buttonBase, width: "fit-content", background: INK, color: BONE }}>
+        <Link href="/contact" className="btn-ink btn-block" style={{ ...iconButton, width: "fit-content", background: INK, color: BONE }}>
           Book a viewing
+          <IconBadge background={GOLD} color={INK}><ArrowIcon /></IconBadge>
         </Link>
       </div>
     </section>

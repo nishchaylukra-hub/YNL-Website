@@ -55,6 +55,7 @@ export default function ThankYouPage() {
             textTransform: "uppercase",
             color: "#F7F4EE",
             border: "1px solid rgba(247,244,238,.34)",
+            borderRadius: 999,
             padding: "16px 28px",
           }}
         >

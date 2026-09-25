@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ImagePlaceholder } from "../ImagePlaceholder";
-import { BONE, BRONZE, GOLD, INK, LOAM, SERIF, eyebrow, h2Style, sectionPad, smallCaps } from "../tokens";
+import { ArrowIcon, IconBadge } from "../Icons";
+import { BONE, BRONZE, GOLD, INK, RADIUS, LOAM, SERIF, eyebrow, h2Style, sectionPad, smallCaps } from "../tokens";
 
 const stats = [
   ["1980s", "Founded"],
@@ -61,7 +62,7 @@ export function About() {
             </div>
           ))}
         </div>
-        <div className="split" style={{ ["--cols" as string]: "200px minmax(0, 1fr)", ["--gap" as string]: "32px", ["--gap-sm" as string]: "14px", padding: "clamp(24px, 2.2vw, 32px)", background: INK, color: BONE }}>
+        <div className="split" style={{ ["--cols" as string]: "200px minmax(0, 1fr)", ["--gap" as string]: "32px", ["--gap-sm" as string]: "14px", padding: "clamp(24px, 2.2vw, 32px)", borderRadius: RADIUS, background: INK, color: BONE }}>
           <p style={{ margin: 0, ...smallCaps(GOLD), letterSpacing: ".32em", lineHeight: 1.8 }}>
             In-house
             <br />
@@ -73,10 +74,13 @@ export function About() {
             </p>
             <Link
               href="/about#legal"
-              className="hover-gold"
-              style={{ width: "fit-content", ...smallCaps(GOLD), fontSize: 12, letterSpacing: ".2em", borderBottom: "1px solid rgba(201,162,39,.5)", paddingBottom: 6 }}
+              className="pill-link on-dark"
+              style={{ color: GOLD, borderColor: "rgba(201,162,39,.5)" }}
             >
-              Headed by Mr. Yuvraj Lukra →
+              Headed by Mr. Yuvraj Lukra
+              <IconBadge size={34} background={GOLD} color={INK}>
+                <ArrowIcon size={15} />
+              </IconBadge>
             </Link>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { BRONZE, GOLD, GOLD_DEEP, INK, LOAM, SAND, SERIF, blockGap, eyebrow, h2Style, sectionPad, smallCaps } from "../tokens";
+import { ArrowIcon, IconBadge } from "../Icons";
+import { BRONZE, GOLD, GOLD_DEEP, INK, LOAM, SAND, SERIF, blockGap, eyebrow, h2Style, sectionPad } from "../tokens";
 
 const services = [
   {
@@ -66,10 +67,13 @@ export function Services() {
           </p>
           <Link
             href="/contact"
-            className="hover-gold-dim"
-            style={{ width: "fit-content", paddingBottom: 8, borderBottom: `1px solid ${GOLD}`, ...smallCaps(INK), fontSize: 12, letterSpacing: ".2em" }}
+            className="pill-link on-light"
+            style={{ color: INK }}
           >
-            Talk to a principal →
+            Talk to a principal
+            <IconBadge size={34} background={GOLD} color={INK}>
+              <ArrowIcon size={15} />
+            </IconBadge>
           </Link>
         </div>
       </div>
@@ -80,7 +84,13 @@ export function Services() {
             <h3 style={{ margin: 0, fontFamily: SERIF, fontWeight: 400, fontSize: "clamp(26px, 2.5vw, 36px)", lineHeight: 1.1 }}>{s.title}</h3>
             <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
               <p style={{ margin: 0, fontSize: 16, lineHeight: 1.75, color: LOAM, textWrap: "pretty" }}>{s.body}</p>
-              <p style={{ margin: 0, ...smallCaps(BRONZE), fontSize: 10, letterSpacing: ".18em", lineHeight: 1.7 }}>{s.tags}</p>
+              <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexWrap: "wrap", gap: 8, color: BRONZE }}>
+                {s.tags.split(" · ").map((tag) => (
+                  <li key={tag} className="chip" style={{ borderColor: "rgba(110,95,55,.4)" }}>
+                    {tag}
+                  </li>
+                ))}
+              </ul>
             </div>
           </article>
         ))}
