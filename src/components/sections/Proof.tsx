@@ -19,9 +19,9 @@ export function Proof() {
     >
       <div className="ruled-cols">
         {stats.map((s) => (
-          <div key={s.label} style={{ display: "flex", flexDirection: "column", gap: 12, paddingBlock: "clamp(28px, 4vw, 52px)" }}>
-            <p style={{ margin: 0, fontFamily: SERIF, fontSize: "clamp(44px, 4.4vw, 64px)", lineHeight: 1, color: GOLD }}>{s.value}</p>
-            <p style={{ margin: 0, ...smallCaps("rgba(247,244,238,.62)"), letterSpacing: ".24em" }}>{s.label}</p>
+          <div key={s.label} style={{ display: "flex", flexDirection: "column", gap: 10, paddingBlock: "clamp(24px, 4vw, 52px)" }}>
+            <p style={{ margin: 0, fontFamily: SERIF, fontSize: "clamp(38px, 4.4vw, 64px)", lineHeight: 1, color: GOLD }}>{s.value}</p>
+            <p style={{ margin: 0, ...smallCaps("rgba(247,244,238,.62)"), letterSpacing: ".2em", lineHeight: 1.5 }}>{s.label}</p>
           </div>
         ))}
       </div>

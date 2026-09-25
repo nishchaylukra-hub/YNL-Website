@@ -35,6 +35,7 @@ export function Timeline() {
       className="wrap split"
       style={{
         ["--cols" as string]: "minmax(0, 4fr) minmax(0, 8fr)",
+        ["--gap-sm" as string]: "32px",
         paddingTop: sectionPad,
         paddingBottom: sectionPad,
         background: BONE,
@@ -43,7 +44,7 @@ export function Timeline() {
     >
       <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
         <p style={eyebrow(BRONZE)}>§ 02 — The ledger</p>
-        <h2 style={{ margin: 0, fontFamily: SERIF, fontWeight: 300, fontSize: "clamp(40px, 3.9vw, 56px)", lineHeight: 1.02, textWrap: "balance" }}>
+        <h2 style={{ margin: 0, fontFamily: SERIF, fontWeight: 300, fontSize: "clamp(34px, 3.9vw, 56px)", lineHeight: 1.02, textWrap: "balance" }}>
           From farm land to <em style={{ fontStyle: "italic" }}>every kind</em> of address.
         </h2>
       </div>
@@ -55,16 +56,16 @@ export function Timeline() {
             style={{
               ["--cols" as string]: "minmax(0, 200px) minmax(0, 1fr)",
               ["--gap" as string]: "40px",
-              ["--gap-sm" as string]: "14px",
-              padding: "36px 0",
+              ["--gap-sm" as string]: "10px",
+              padding: "clamp(24px, 2.5vw, 36px) 0",
               borderTop: rule,
             }}
           >
-            <span style={{ fontFamily: SERIF, fontSize: "clamp(24px, 2.4vw, 34px)", lineHeight: 1, fontStyle: e.italic ? "italic" : undefined }}>
+            <span style={{ fontFamily: SERIF, fontSize: "clamp(20px, 2.4vw, 34px)", lineHeight: 1, fontStyle: e.italic ? "italic" : undefined }}>
               {e.when}
             </span>
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-              <h3 style={{ margin: 0, fontFamily: SERIF, fontWeight: 400, fontSize: 28 }}>{e.title}</h3>
+              <h3 style={{ margin: 0, fontFamily: SERIF, fontWeight: 400, fontSize: "clamp(23px, 2vw, 28px)", lineHeight: 1.15 }}>{e.title}</h3>
               <p style={{ margin: 0, fontSize: 16, lineHeight: 1.75, color: LOAM, textWrap: "pretty" }}>{e.body}</p>
             </div>
           </li>

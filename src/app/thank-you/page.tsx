@@ -20,7 +20,7 @@ export default function ThankYouPage() {
           alignItems: "center",
           justifyContent: "center",
           textAlign: "center",
-          padding: "112px 44px",
+          padding: "clamp(72px, 8vw, 112px) 24px",
           gap: 28,
         }}
       >

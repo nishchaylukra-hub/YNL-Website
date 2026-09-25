@@ -1,4 +1,4 @@
-import { BONE, GOLD, INK, SERIF, eyebrow, sectionPad, smallCaps } from "../tokens";
+import { BONE, GOLD, INK, SERIF, blockGap, eyebrow, sectionPad, smallCaps } from "../tokens";
 
 const quotes = [
   {
@@ -17,13 +17,13 @@ export function Testimonials() {
   return (
     <section
       className="wrap"
-      style={{ display: "flex", flexDirection: "column", gap: 64, paddingTop: sectionPad, paddingBottom: sectionPad, background: INK }}
+      style={{ display: "flex", flexDirection: "column", gap: blockGap, paddingTop: sectionPad, paddingBottom: sectionPad, background: INK }}
     >
       <p style={eyebrow(GOLD)}>§ 04 — In their words</p>
-      <div className="split" style={{ ["--gap" as string]: "96px" }}>
+      <div className="split" style={{ ["--gap" as string]: "96px", ["--gap-sm" as string]: "56px" }}>
         {quotes.map((q, i) => (
-          <figure key={q.name} className={i === 1 ? "offset-down" : undefined} style={{ margin: 0, display: "flex", flexDirection: "column", gap: 32 }}>
-            <span aria-hidden="true" style={{ fontFamily: SERIF, fontSize: 96, lineHeight: 0.5, height: 40, color: GOLD }}>
+          <figure key={q.name} className={i === 1 ? "offset-down" : undefined} style={{ margin: 0, display: "flex", flexDirection: "column", gap: "clamp(20px, 2.2vw, 32px)" }}>
+            <span aria-hidden="true" style={{ fontFamily: SERIF, fontSize: "clamp(72px, 6.7vw, 96px)", lineHeight: 0.5, height: "clamp(30px, 2.8vw, 40px)", color: GOLD }}>
               &ldquo;
             </span>
             <blockquote
@@ -31,7 +31,7 @@ export function Testimonials() {
                 margin: 0,
                 fontFamily: SERIF,
                 fontWeight: 300,
-                fontSize: "clamp(26px, 2.5vw, 36px)",
+                fontSize: "clamp(23px, 2.5vw, 36px)",
                 lineHeight: 1.35,
                 color: BONE,
                 textWrap: "pretty",

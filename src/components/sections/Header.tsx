@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { BONE, GOLD, INK, buttonBase } from "../tokens";
+import { MobileNav } from "./MobileNav";
 
 type Page = "home" | "about" | "contact";
 
@@ -23,8 +24,8 @@ export function Header({ current = "home" }: { current?: Page }) {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        gap: 32,
-        paddingBlock: 20,
+        gap: 24,
+        paddingBlock: "clamp(14px, 1.4vw, 20px)",
         background: "rgba(20,19,15,.92)",
         backdropFilter: "blur(16px)",
         borderBottom: "1px solid rgba(247,244,238,.1)",
@@ -36,7 +37,7 @@ export function Header({ current = "home" }: { current?: Page }) {
           alt="YNL Realtors — Land. Legacy. Luxury."
           height={44}
           width={165}
-          style={{ height: 40, width: "auto", display: "block" }}
+          style={{ height: "clamp(34px, 2.8vw, 40px)", width: "auto", display: "block" }}
           preload
         />
       </Link>
@@ -63,11 +64,12 @@ export function Header({ current = "home" }: { current?: Page }) {
         </div>
         <Link
           href="/contact"
-          className="btn-gold"
+          className="btn-gold hide-sm"
           style={{ ...buttonBase, marginLeft: 16, padding: "15px 26px", background: GOLD, color: INK, border: `1px solid ${GOLD}` }}
         >
           Book a viewing
         </Link>
+        <MobileNav links={links.map((l) => ({ href: l.href, label: l.label, active: l.page === current }))} />
       </nav>
     </header>
   );

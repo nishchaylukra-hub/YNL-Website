@@ -7,15 +7,15 @@ export function Footer() {
   return (
     <footer
       className="wrap"
-      style={{ display: "flex", flexDirection: "column", gap: 56, paddingTop: 72, paddingBottom: 48, background: INK_3 }}
+      style={{ display: "flex", flexDirection: "column", gap: "clamp(40px, 3.9vw, 56px)", paddingTop: "clamp(56px, 5vw, 72px)", paddingBottom: "clamp(32px, 3.3vw, 48px)", background: INK_3 }}
     >
-      <div className="split" style={{ ["--cols" as string]: "minmax(0, 1.4fr) repeat(3, minmax(0, 1fr))", ["--gap" as string]: "48px" }}>
+      <div className="split" style={{ ["--cols" as string]: "minmax(0, 1.4fr) repeat(3, minmax(0, 1fr))", ["--gap" as string]: "48px", ["--gap-sm" as string]: "32px" }}>
         <Image
           src="/assets/ynl-logo-mark.png"
           alt="YNL Realtors"
           height={52}
           width={195}
-          style={{ height: 52, width: "auto", display: "block", alignSelf: "start" }}
+          style={{ height: "clamp(44px, 3.6vw, 52px)", width: "auto", display: "block", alignSelf: "start" }}
         />
         <div style={columnStyle}>
           <span style={headingStyle}>Offices</span>

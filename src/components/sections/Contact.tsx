@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type CSSProperties, type FormEvent } from "react";
-import { BONE, GOLD, INK, INK_2, SERIF, buttonBase, eyebrow, sectionPad } from "../tokens";
+import { BONE, GOLD, INK, INK_2, SERIF, blockGap, buttonBase, eyebrow, sectionPad } from "../tokens";
 
 const FORMINIT_FORM_ID = "fdtcek1uzvk";
 
@@ -101,7 +101,7 @@ export function Contact() {
     <section
       id="contact"
       className="wrap"
-      style={{ display: "flex", flexDirection: "column", gap: 72, paddingTop: "clamp(64px, 7vw, 104px)", paddingBottom: sectionPad, background: INK }}
+      style={{ display: "flex", flexDirection: "column", gap: blockGap, paddingTop: "clamp(48px, 7vw, 104px)", paddingBottom: sectionPad, background: INK }}
     >
       <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
         <p style={eyebrow(GOLD)}>§ 01 — Contact</p>
@@ -110,7 +110,7 @@ export function Contact() {
             margin: 0,
             fontFamily: SERIF,
             fontWeight: 300,
-            fontSize: "clamp(56px, 8.3vw, 120px)",
+            fontSize: "clamp(44px, 8.3vw, 120px)",
             lineHeight: 0.95,
             letterSpacing: "-.02em",
             color: BONE,
@@ -118,7 +118,7 @@ export function Contact() {
         >
           Come to <em style={{ fontStyle: "italic", color: GOLD }}>the table.</em>
         </h1>
-        <p style={{ margin: 0, fontSize: 18, lineHeight: 1.7, color: "rgba(247,244,238,.74)", maxWidth: 560, textWrap: "pretty" }}>
+        <p style={{ margin: 0, fontSize: "clamp(16px, 1.3vw, 18px)", lineHeight: 1.7, color: "rgba(247,244,238,.74)", maxWidth: 560, textWrap: "pretty" }}>
           Viewings and portfolio reviews are by appointment. Tell us what you are holding or hunting and a principal
           replies the same working day.
         </p>
@@ -127,7 +127,7 @@ export function Contact() {
       <div className="split" style={{ alignItems: "start" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: 48, minWidth: 0 }}>
           <dl style={{ margin: 0, display: "flex", flexDirection: "column", borderTop: infoRule }}>
-            <div style={infoRowStyle}>
+            <div className="info-row" style={infoRowStyle}>
               <dt style={infoLabelStyle}>Offices</dt>
               <dd style={infoValueStyle}>
                 S-22, Sector 12, Faridabad
@@ -135,7 +135,7 @@ export function Contact() {
                 3E-8, NIT, Faridabad
               </dd>
             </div>
-            <div style={infoRowStyle}>
+            <div className="info-row" style={infoRowStyle}>
               <dt style={infoLabelStyle}>Hours</dt>
               <dd style={infoValueStyle}>
                 Mon–Sat, 9:00am–5:00pm
@@ -143,7 +143,7 @@ export function Contact() {
                 Sunday by appointment
               </dd>
             </div>
-            <div style={infoRowStyle}>
+            <div className="info-row" style={infoRowStyle}>
               <dt style={infoLabelStyle}>Direct</dt>
               <dd style={{ ...infoValueStyle, display: "flex", flexDirection: "column", gap: 4 }}>
                 <a href="tel:+919717847278" className="hover-gold" style={{ color: BONE }}>
@@ -154,7 +154,7 @@ export function Contact() {
                 </a>
               </dd>
             </div>
-            <div style={infoRowStyle}>
+            <div className="info-row" style={infoRowStyle}>
               <dt style={infoLabelStyle}>Email</dt>
               <dd style={infoValueStyle}>
                 <a href="mailto:ynlrealtors@gmail.com" className="hover-gold" style={{ color: BONE }}>
@@ -174,11 +174,11 @@ export function Contact() {
             gap: 28,
             background: INK_2,
             border: "1px solid rgba(247,244,238,.12)",
-            padding: "clamp(28px, 3.4vw, 48px)",
+            padding: "clamp(24px, 3.4vw, 48px)",
           }}
         >
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-            <h2 style={{ margin: 0, fontFamily: SERIF, fontWeight: 400, fontSize: 36, lineHeight: 1.1, color: BONE }}>Request the portfolio</h2>
+            <h2 style={{ margin: 0, fontFamily: SERIF, fontWeight: 400, fontSize: "clamp(28px, 2.5vw, 36px)", lineHeight: 1.1, color: BONE }}>Request the portfolio</h2>
             <p style={{ margin: 0, fontSize: 14, color: "rgba(247,244,238,.62)" }}>A principal replies the same working day.</p>
           </div>
           <div className="split" style={{ ["--gap" as string]: "24px", ["--gap-sm" as string]: "28px" }}>
@@ -218,7 +218,7 @@ export function Contact() {
             style={{
               ...buttonBase,
               marginTop: 8,
-              padding: "20px 32px",
+              padding: "20px clamp(24px, 2.2vw, 32px)",
               background: GOLD,
               border: `1px solid ${GOLD}`,
               color: INK,
@@ -256,7 +256,7 @@ export function Contact() {
 function OfficeMap() {
   return (
     <figure
-      style={{ margin: 0, display: "flex", flexDirection: "column", gap: 12, padding: 20, border: "1px solid rgba(201,162,39,.38)", background: "#17160F" }}
+      style={{ margin: 0, display: "flex", flexDirection: "column", gap: 12, padding: "clamp(14px, 1.4vw, 20px)", border: "1px solid rgba(201,162,39,.38)", background: "#17160F" }}
     >
       <svg viewBox="0 0 560 300" width="100%" style={{ display: "block" }} fill="none" role="img" aria-label="Office locations: S-22, Sector 12 and 3E-8, NIT, Faridabad">
         <path d="M0 200 L560 120 M0 220 L560 140" stroke={GOLD} strokeOpacity={0.6} />

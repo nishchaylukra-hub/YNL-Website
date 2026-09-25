@@ -24,7 +24,7 @@ export default function SitemapPage() {
       >
         <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
           <p style={eyebrow(BRONZE)}>Sitemap</p>
-          <h1 style={{ margin: 0, fontFamily: SERIF, fontWeight: 300, fontSize: "clamp(44px, 5vw, 72px)", lineHeight: 1 }}>
+          <h1 style={{ margin: 0, fontFamily: SERIF, fontWeight: 300, fontSize: "clamp(36px, 5vw, 72px)", lineHeight: 1.02 }}>
             Every page, <em style={{ fontStyle: "italic" }}>in one place.</em>
           </h1>
         </div>

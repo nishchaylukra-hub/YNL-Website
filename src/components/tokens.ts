@@ -13,7 +13,10 @@ export const LOAM = "#5E594E"; // body copy on light grounds
 
 export const SERIF = "var(--font-cormorant), Georgia, serif";
 
-export const sectionPad = "clamp(72px, 9vw, 136px)";
+export const sectionPad = "clamp(64px, 9vw, 136px)";
+
+// Vertical rhythm between blocks inside a section — tightens on phones.
+export const blockGap = "clamp(40px, 5vw, 72px)";
 
 export function eyebrow(color: string): CSSProperties {
   return { margin: 0, fontSize: 11, letterSpacing: ".42em", textTransform: "uppercase", color };
@@ -27,15 +30,15 @@ export const h2Style: CSSProperties = {
   margin: 0,
   fontFamily: SERIF,
   fontWeight: 300,
-  fontSize: "clamp(42px, 5vw, 72px)",
-  lineHeight: 1,
+  fontSize: "clamp(36px, 5vw, 72px)",
+  lineHeight: 1.02,
   letterSpacing: "-.01em",
   textWrap: "balance",
 };
 
 export const buttonBase: CSSProperties = {
   display: "inline-block",
-  padding: "19px 32px",
+  padding: "18px clamp(24px, 2.2vw, 32px)",
   fontSize: 12,
   letterSpacing: ".2em",
   textTransform: "uppercase",

@@ -17,6 +17,7 @@ export function About() {
       style={{
         ["--cols" as string]: "minmax(0, 5fr) minmax(0, 7fr)",
         ["--gap" as string]: "96px",
+        ["--gap-sm" as string]: "40px",
         paddingTop: sectionPad,
         paddingBottom: sectionPad,
         background: BONE,
@@ -24,19 +25,19 @@ export function About() {
       }}
     >
       <figure style={{ margin: 0, display: "flex", flexDirection: "column", gap: 16 }}>
-        <ImagePlaceholder label="[Portrait — founder]" style={{ height: "clamp(360px, 43vw, 620px)" }} />
+        <ImagePlaceholder label="[Portrait — founder]" style={{ height: "clamp(300px, 43vw, 620px)" }} />
         <figcaption style={{ display: "flex", justifyContent: "space-between", gap: 16, ...smallCaps(BRONZE), letterSpacing: ".2em" }}>
           <span>Mr. Narender Kumar Lukra</span>
           <span>Founder</span>
         </figcaption>
       </figure>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: 32, paddingTop: 12 }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "clamp(22px, 2.2vw, 32px)", paddingTop: 12 }}>
         <p style={eyebrow(BRONZE)}>§ 03 — About us</p>
         <h2 style={h2Style}>
           Experience you <em style={{ fontStyle: "italic" }}>can trust.</em>
         </h2>
-        <p style={{ margin: 0, fontFamily: SERIF, fontSize: "clamp(22px, 2vw, 28px)", lineHeight: 1.45, textWrap: "pretty" }}>
+        <p style={{ margin: 0, fontFamily: SERIF, fontSize: "clamp(20px, 2vw, 28px)", lineHeight: 1.45, textWrap: "pretty" }}>
           YNL Realtors began in the early 1980s under our founder, Mr. Narender Kumar Lukra. Starting with agriculture
           land in Faridabad, we have grown into a trusted business in agriculture, residential and commercial property.
         </p>
@@ -45,7 +46,7 @@ export function About() {
           client, supported by our in-house legal, valuation and documentation teams.
         </p>
         <div
-          className="ruled-cols stack-sm"
+          className="ruled-cols keep-cols"
           style={{
             ["--n" as string]: 3,
             ["--rule" as string]: "rgba(20,19,15,.16)",
@@ -54,20 +55,20 @@ export function About() {
           }}
         >
           {stats.map(([value, label]) => (
-            <div key={label} style={{ display: "flex", flexDirection: "column", gap: 6, paddingBlock: 24 }}>
-              <span style={{ fontFamily: SERIF, fontSize: 40, lineHeight: 1 }}>{value}</span>
-              <span style={smallCaps(BRONZE)}>{label}</span>
+            <div key={label} style={{ display: "flex", flexDirection: "column", gap: 6, paddingBlock: "clamp(18px, 1.8vw, 24px)" }}>
+              <span style={{ fontFamily: SERIF, fontSize: "clamp(28px, 2.8vw, 40px)", lineHeight: 1 }}>{value}</span>
+              <span style={{ ...smallCaps(BRONZE), fontSize: 10, letterSpacing: ".18em", lineHeight: 1.5 }}>{label}</span>
             </div>
           ))}
         </div>
-        <div className="split" style={{ ["--cols" as string]: "200px minmax(0, 1fr)", ["--gap" as string]: "32px", ["--gap-sm" as string]: "16px", padding: 32, background: INK, color: BONE }}>
+        <div className="split" style={{ ["--cols" as string]: "200px minmax(0, 1fr)", ["--gap" as string]: "32px", ["--gap-sm" as string]: "14px", padding: "clamp(24px, 2.2vw, 32px)", background: INK, color: BONE }}>
           <p style={{ margin: 0, ...smallCaps(GOLD), letterSpacing: ".32em", lineHeight: 1.8 }}>
             In-house
             <br />
             Legal Cell
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-            <p style={{ margin: 0, fontFamily: SERIF, fontSize: 24, lineHeight: 1.35 }}>
+            <p style={{ margin: 0, fontFamily: SERIF, fontSize: "clamp(20px, 1.7vw, 24px)", lineHeight: 1.35 }}>
               Title checks, agreements and registration — and if a civil dispute arises, we represent you directly.
             </p>
             <Link

@@ -15,27 +15,28 @@ export function ContactBand() {
       style={{
         ["--cols" as string]: "minmax(0, 1.2fr) minmax(0, .8fr)",
         ["--gap" as string]: "96px",
+        ["--gap-sm" as string]: "40px",
         alignItems: "end",
-        paddingBlock: "clamp(64px, 8vw, 112px)",
+        paddingBlock: "clamp(56px, 8vw, 112px)",
         background: GOLD,
         color: INK,
       }}
     >
-      <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "clamp(18px, 1.7vw, 24px)" }}>
         <p style={eyebrow(INK)}>§ 05 — Contact</p>
         <h2
           style={{
             margin: 0,
             fontFamily: SERIF,
             fontWeight: 300,
-            fontSize: "clamp(54px, 7.2vw, 104px)",
+            fontSize: "clamp(42px, 7.2vw, 104px)",
             lineHeight: 0.95,
             letterSpacing: "-.015em",
           }}
         >
           Come to <em style={{ fontStyle: "italic" }}>the table.</em>
         </h2>
-        <p style={{ margin: 0, fontSize: 17, lineHeight: 1.7, maxWidth: 480 }}>
+        <p style={{ margin: 0, fontSize: "clamp(16px, 1.2vw, 17px)", lineHeight: 1.7, maxWidth: 480 }}>
           Viewings and portfolio reviews are by appointment. Tell us what you are holding or hunting and a principal
           replies the same working day.
         </p>
@@ -53,7 +54,7 @@ export function ContactBand() {
                 gap: 16,
                 padding: "18px 0",
                 borderBottom: "1px solid rgba(20,19,15,.3)",
-                fontSize: 18,
+                fontSize: "clamp(16px, 1.3vw, 18px)",
                 color: INK,
               }}
             >
@@ -62,7 +63,7 @@ export function ContactBand() {
             </a>
           ))}
         </div>
-        <Link href="/contact" className="btn-ink" style={{ ...buttonBase, width: "fit-content", background: INK, color: BONE }}>
+        <Link href="/contact" className="btn-ink btn-block" style={{ ...buttonBase, width: "fit-content", background: INK, color: BONE }}>
           Book a viewing
         </Link>
       </div>

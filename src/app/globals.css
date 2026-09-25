@@ -1,5 +1,8 @@
 html {
   scroll-behavior: smooth;
+  /* stop iOS Safari inflating text in landscape */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 html,
@@ -115,6 +118,64 @@ textarea {
   padding-top: var(--offset, 96px);
 }
 
+/* mobile menu (Header) — shown only below 900px */
+.show-sm {
+  display: none !important;
+}
+
+.menu-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0 10px 12px;
+  background: none;
+  border: 0;
+  color: #f7f4ee;
+  font: inherit;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.menu-bars {
+  position: relative;
+  width: 22px;
+  height: 9px;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transition: transform 0.2s ease;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-bars {
+  height: 0;
+  border-bottom: 0;
+  transform: rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] .menu-bars::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -1px;
+  width: 22px;
+  border-top: 1px solid currentColor;
+  transform: rotate(-90deg);
+}
+
+.menu-panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 28px;
+  background: #14130f;
+  border-bottom: 1px solid rgba(247, 244, 238, 0.1);
+  box-shadow: 0 24px 40px rgba(0, 0, 0, 0.45);
+}
+
 @media (max-width: 900px) {
   .split {
     grid-template-columns: minmax(0, 1fr);
@@ -162,5 +223,53 @@ textarea {
 
   .hide-sm {
     display: none !important;
+  }
+
+  .show-sm {
+    display: flex !important;
+  }
+
+  /* keep a short row of stats on one line instead of wrapping 2 + 1 */
+  .ruled-cols.keep-cols {
+    grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr));
+  }
+
+  .ruled-cols.keep-cols > * {
+    padding-inline: 14px;
+    border-top: 0;
+    border-left: 1px solid var(--rule, rgba(247, 244, 238, 0.1));
+  }
+
+  .ruled-cols.keep-cols > :first-child {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .ruled-cols.keep-cols > :last-child {
+    padding-right: 0;
+  }
+
+  /* label-over-value rows (contact details) */
+  .info-row {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 6px !important;
+    padding-block: 18px !important;
+  }
+
+  /* survey plate: crop to a landscape frame so it doesn't fill the phone */
+  .plate-svg {
+    aspect-ratio: 4 / 3;
+    height: auto;
+  }
+}
+
+@media (max-width: 560px) {
+  /* stacked, full-width call-to-action buttons */
+  .btn-row > * {
+    flex: 1 1 100%;
+  }
+
+  .btn-block {
+    width: 100% !important;
   }
 }

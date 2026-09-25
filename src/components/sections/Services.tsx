@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BRONZE, GOLD, GOLD_DEEP, INK, LOAM, SAND, SERIF, eyebrow, h2Style, sectionPad, smallCaps } from "../tokens";
+import { BRONZE, GOLD, GOLD_DEEP, INK, LOAM, SAND, SERIF, blockGap, eyebrow, h2Style, sectionPad, smallCaps } from "../tokens";
 
 const services = [
   {
@@ -44,7 +44,7 @@ export function Services() {
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: 72,
+        gap: blockGap,
         paddingTop: sectionPad,
         paddingBottom: sectionPad,
         background: SAND,
@@ -52,15 +52,15 @@ export function Services() {
         scrollMarginTop: 80,
       }}
     >
-      <div className="split" style={{ alignItems: "end" }}>
+      <div className="split" style={{ alignItems: "end", ["--gap-sm" as string]: "28px" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
           <p style={eyebrow(BRONZE)}>§ 02 — Services</p>
           <h2 style={h2Style}>
             Five teams. <em style={{ fontStyle: "italic" }}>One trusted</em> property list.
           </h2>
         </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: 26, paddingBottom: 6 }}>
-          <p style={{ margin: 0, fontSize: 17, lineHeight: 1.75, color: LOAM, textWrap: "pretty" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 24, paddingBottom: 6 }}>
+          <p style={{ margin: 0, fontSize: "clamp(16px, 1.2vw, 17px)", lineHeight: 1.75, color: LOAM, textWrap: "pretty" }}>
             Our five teams work from the same list of properties, so buyers, sellers and builders all receive the same
             clear and honest information. We make real estate simple, clear, and easy to understand.
           </p>
@@ -75,12 +75,12 @@ export function Services() {
       </div>
       <div style={{ display: "flex", flexDirection: "column", borderBottom: rule }}>
         {services.map((s) => (
-          <article key={s.num} className="ledger-row" style={{ paddingBlock: 44, borderTop: rule }}>
-            <span style={{ fontFamily: SERIF, fontStyle: "italic", fontSize: 48, lineHeight: 1, color: GOLD_DEEP }}>{s.num}</span>
-            <h3 style={{ margin: 0, fontFamily: SERIF, fontWeight: 400, fontSize: 36, lineHeight: 1.1 }}>{s.title}</h3>
+          <article key={s.num} className="ledger-row" style={{ paddingBlock: "clamp(28px, 3vw, 44px)", borderTop: rule }}>
+            <span style={{ fontFamily: SERIF, fontStyle: "italic", fontSize: "clamp(34px, 3.4vw, 48px)", lineHeight: 1, color: GOLD_DEEP }}>{s.num}</span>
+            <h3 style={{ margin: 0, fontFamily: SERIF, fontWeight: 400, fontSize: "clamp(26px, 2.5vw, 36px)", lineHeight: 1.1 }}>{s.title}</h3>
             <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
               <p style={{ margin: 0, fontSize: 16, lineHeight: 1.75, color: LOAM, textWrap: "pretty" }}>{s.body}</p>
-              <p style={{ margin: 0, ...smallCaps(BRONZE), letterSpacing: ".2em" }}>{s.tags}</p>
+              <p style={{ margin: 0, ...smallCaps(BRONZE), fontSize: 10, letterSpacing: ".18em", lineHeight: 1.7 }}>{s.tags}</p>
             </div>
           </article>
         ))}

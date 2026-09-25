@@ -11,7 +11,7 @@ export function SurveyPlate() {
         display: "flex",
         flexDirection: "column",
         gap: 14,
-        padding: 22,
+        padding: "clamp(16px, 1.5vw, 22px)",
         border: "1px solid rgba(201,162,39,.38)",
         background: "#17160F",
       }}
@@ -20,7 +20,15 @@ export function SurveyPlate() {
         <span>Sheet 01</span>
         <span>Faridabad, Haryana</span>
       </div>
-      <svg viewBox="0 0 560 640" width="100%" style={{ display: "block" }} fill="none" aria-hidden="true">
+      <svg
+        viewBox="0 0 560 640"
+        width="100%"
+        className="plate-svg"
+        preserveAspectRatio="xMidYMid slice"
+        style={{ display: "block" }}
+        fill="none"
+        aria-hidden="true"
+      >
         <path
           d="M8 40 L44 34 M8 62 L46 56 M8 84 L48 78 M8 106 L50 100 M8 128 L50 122 M8 150 L48 144 M8 172 L46 166 M8 194 L44 188 M8 216 L44 210 M8 238 L46 232 M8 260 L50 254 M8 282 L52 276 M8 304 L54 298 M8 326 L56 320 M8 348 L58 342 M8 370 L60 364"
           stroke={GOLD}
