@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { SurveyPlate } from "../SurveyPlate";
+import Image from "next/image";
 import { ArrowIcon, IconBadge } from "../Icons";
 import { BONE, GOLD, INK, SERIF, buttonBase, iconButton, smallCaps } from "../tokens";
+import faridabadMap from "./faridabad_midnight_blue_20260927_232621.png";
 
 const facts: { value: string; label: string; italic?: boolean }[] = [
   { value: "62", label: "Live exclusive mandates" },
@@ -49,13 +50,13 @@ export function Hero() {
             Request the portfolio
             <IconBadge background={INK} color={GOLD}><ArrowIcon /></IconBadge>
           </Link>
-          <a
-            href="#services"
+          <Link
+            href="/services"
             className="btn-outline"
             style={{ ...buttonBase, fontWeight: 400, color: BONE, border: "1px solid rgba(247,244,238,.34)" }}
           >
             What we do
-          </a>
+          </Link>
         </div>
         <div
           className="ruled-cols keep-cols"
@@ -71,7 +72,19 @@ export function Hero() {
           ))}
         </div>
       </div>
-      <SurveyPlate />
+      <figure style={{ margin: 0, display: "flex", flexDirection: "column", gap: 14, padding: "clamp(16px, 1.5vw, 22px)", border: "1px solid rgba(201,162,39,.38)", background: "#17160F" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", gap: 12, fontSize: 10, letterSpacing: ".3em", textTransform: "uppercase", color: GOLD }}>
+          <span>Sheet 01</span>
+          <span>Faridabad, Haryana</span>
+        </div>
+        <Image
+          src={faridabadMap}
+          alt="Map of Faridabad, Haryana"
+          className="plate-img"
+          sizes="(max-width: 900px) 100vw, 45vw"
+          style={{ display: "block", width: "100%", height: "auto", objectFit: "cover" }}
+        />
+      </figure>
     </section>
   );
 }

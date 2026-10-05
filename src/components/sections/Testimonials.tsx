@@ -19,7 +19,7 @@ export function Testimonials() {
       className="wrap"
       style={{ display: "flex", flexDirection: "column", gap: blockGap, paddingTop: sectionPad, paddingBottom: sectionPad, background: INK }}
     >
-      <p style={eyebrow(GOLD)}>§ 04 — In their words</p>
+      <p style={eyebrow(GOLD)}>In their words</p>
       <div className="split" style={{ ["--gap" as string]: "96px", ["--gap-sm" as string]: "56px" }}>
         {quotes.map((q, i) => (
           <figure key={q.name} className={i === 1 ? "offset-down" : undefined} style={{ margin: 0, display: "flex", flexDirection: "column", gap: "clamp(20px, 2.2vw, 32px)" }}>

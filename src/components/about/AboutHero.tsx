@@ -22,7 +22,7 @@ export function AboutHero() {
         1980s
       </p>
       <div style={{ display: "flex", flexDirection: "column", gap: "clamp(20px, 2vw, 28px)" }}>
-        <p style={eyebrow(GOLD)}>§ 01 — About us</p>
+        <p style={eyebrow(GOLD)}>About us</p>
         <h1
           style={{
             margin: 0,

@@ -54,7 +54,7 @@ export function Services() {
     >
       <div className="split" style={{ alignItems: "end", ["--gap-sm" as string]: "28px" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
-          <p style={eyebrow(BRONZE)}>§ 02 — Services</p>
+          <p style={eyebrow(BRONZE)}>Services</p>
           <h2 style={h2Style}>
             Five teams. <em style={{ fontStyle: "italic" }}>One trusted</em> property list.
           </h2>

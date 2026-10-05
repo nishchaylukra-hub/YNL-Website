@@ -17,7 +17,7 @@ const entries: { when: string; italic?: boolean; title: string; body: string }[]
     when: "In-house",
     italic: true,
     title: "The Legal Cell",
-    body: "Documentation and civil disputes are handled in-house, headed by Mr. Yuvraj Lukra.",
+    body: "Documentation and civil disputes are handled in-house, headed by Adv. Yuvraj Lukra.",
   },
   {
     when: "Today",
@@ -43,7 +43,7 @@ export function Timeline() {
       }}
     >
       <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
-        <p style={eyebrow(BRONZE)}>§ 02 — The ledger</p>
+        <p style={eyebrow(BRONZE)}>The ledger</p>
         <h2 style={{ margin: 0, fontFamily: SERIF, fontWeight: 300, fontSize: "clamp(34px, 3.9vw, 56px)", lineHeight: 1.02, textWrap: "balance" }}>
           From farm land to <em style={{ fontStyle: "italic" }}>every kind</em> of address.
         </h2>

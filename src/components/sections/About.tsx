@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ImagePlaceholder } from "../ImagePlaceholder";
+import Image from "next/image";
 import { BONE, BRONZE, GOLD, INK, LOAM, SERIF, eyebrow, h2Style, sectionPad, smallCaps } from "../tokens";
 
 const stats = [
@@ -25,7 +25,15 @@ export function About() {
       }}
     >
       <figure style={{ margin: 0, display: "flex", flexDirection: "column", gap: 16 }}>
-        <ImagePlaceholder label="[Portrait — founder]" style={{ height: "clamp(300px, 43vw, 620px)" }} />
+        <div style={{ position: "relative", width: "100%", height: "clamp(300px, 43vw, 620px)", overflow: "hidden" }}>
+          <Image
+            src="/assets/founder-narender-lukra.png"
+            alt="Mr. Narender Kumar Lukra, Founder"
+            fill
+            sizes="(max-width: 900px) 100vw, 50vw"
+            style={{ objectFit: "cover", objectPosition: "50% 20%" }}
+          />
+        </div>
         <figcaption style={{ display: "flex", justifyContent: "space-between", gap: 16, ...smallCaps(BRONZE), letterSpacing: ".2em" }}>
           <span>Mr. Narender Kumar Lukra</span>
           <span>Founder</span>
@@ -33,7 +41,7 @@ export function About() {
       </figure>
 
       <div style={{ display: "flex", flexDirection: "column", gap: "clamp(22px, 2.2vw, 32px)", paddingTop: 12 }}>
-        <p style={eyebrow(BRONZE)}>§ 03 — About us</p>
+        <p style={eyebrow(BRONZE)}>About us</p>
         <h2 style={h2Style}>
           Experience you <em style={{ fontStyle: "italic" }}>can trust.</em>
         </h2>
@@ -72,11 +80,11 @@ export function About() {
               Title checks, agreements and registration — and if a civil dispute arises, we represent you directly.
             </p>
             <Link
-              href="/about#legal"
+              href="/about-legal"
               className="hover-gold"
               style={{ width: "fit-content", ...smallCaps(GOLD), fontSize: 12, letterSpacing: ".2em", borderBottom: "1px solid rgba(201,162,39,.5)", paddingBottom: 6 }}
             >
-              Headed by Mr. Yuvraj Lukra →
+              Headed by Adv. Yuvraj Lukra →
             </Link>
           </div>
         </div>

@@ -22,12 +22,14 @@ before `node`/`npm` resolve in a fresh non-interactive shell, since `~/.zshrc`'s
 ## Architecture
 
 ### Page structure
-Three routes, each a server component composing sections with a shared `Header` (takes `current` for the
-active nav item) and `Footer`:
+Routes are server components composing sections with a shared `Header` (takes `current` for the active nav item)
+and `Footer`:
 - `/` (`src/app/page.tsx`) — `Hero`, `Proof`, `Services`, `About` (teaser), `Testimonials`, `ContactBand`
   from `src/components/sections/`.
-- `/about` (`src/app/about/page.tsx`) — `AboutHero`, `Timeline`, `LegalCell` (`#legal`), `Principals`,
+- `/about` (`src/app/about/page.tsx`) — `AboutHero`, `Timeline`, `Principals`,
   `AboutCta` from `src/components/about/`.
+- `/about-legal` (`src/app/about-legal/page.tsx`) — `LegalCell`, `AboutCta`.
+- `/services` (`src/app/services/page.tsx`) — `Services`, `ContactBand`.
 - `/contact` (`src/app/contact/page.tsx`) — `Contact`, the only `"use client"` section: details, office map
   and the Forminit enquiry form (form id in `Contact.tsx`; the SDK script loads in `layout.tsx`).
 - `/thank-you` — Forminit's post-submit redirect target (`noindex`, disallowed in robots.txt).
@@ -49,18 +51,17 @@ its own `alternates.canonical`.
   900px. Set their CSS variables from inline style as `["--cols" as string]: "…"`.
 
 ### Hero (`src/components/sections/Hero.tsx`)
-Static two-column hero: headline, CTAs and a fact row beside `SurveyPlate` — an inline-SVG "survey sheet"
-of hairline plot boundaries, the brand's signature motif (a nod to the firm's agriculture-land origins; it is
-illustrative, not a real parcel). No WebGL or JS animation. An earlier version rendered a Three.js/React Three
-Fiber scene here; it and the `three`/`@react-three/*` dependencies were removed.
+Static two-column hero: headline, CTAs and a fact row beside a "Sheet 01" map figure — the Faridabad map PNG
+`sections/faridabad_midnight_blue_20260927_232621.png`, also used on the contact page. No WebGL or JS animation. An earlier
+version rendered a Three.js/React Three Fiber scene here; it and the `three`/`@react-three/*` dependencies were removed.
 
 ### Design assets
 - `public/assets/ynl-logo-mark.png` — the only real image asset; pulled from the `claude_design` project
   ("Interactive realty homepage design", project id `9a443efa-2ebf-4c8a-9c5a-a033e843e5b0`) via the DesignSync
   MCP. The favicon set (`src/app/favicon.ico`, `icon.png`, `apple-icon.png`) is the logo's "Y" monogram cropped
-  from that file, in gold on an `INK` tile. Team portraits are still placeholders (`src/components/ImagePlaceholder.tsx`) — swap those for real
-  photos in `sections/About.tsx` and `about/Principals.tsx` when available. The office map in `Contact.tsx`
-  is a stylised SVG, not a real map.
+  from that file, in gold on an `INK` tile. Team portraits are real photos in `public/assets/` (founder and Legal Cell
+  head), used in `sections/About.tsx` and `about/Principals.tsx`. The office map in `Contact.tsx`
+  is the Faridabad map PNG (`sections/faridabad_midnight_blue_20260927_232621.png`).
 - Fonts (Cormorant Garamond, Jost) are loaded via `next/font/google` in `src/app/layout.tsx` as CSS variables
   (`--font-cormorant`, `--font-jost`); reference them as `var(--font-cormorant), Georgia, serif` etc. in style
   objects rather than adding new `<link>` tags.

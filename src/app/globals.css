@@ -258,8 +258,8 @@ textarea {
     padding-block: 18px !important;
   }
 
-  /* survey plate: crop to a landscape frame so it doesn't fill the phone */
-  .plate-svg {
+  /* hero map: crop to a landscape frame so it doesn't fill the phone */
+  .plate-img {
     aspect-ratio: 4 / 3;
     height: auto;
   }
