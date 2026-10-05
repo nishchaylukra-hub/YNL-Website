@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/sections/Header";
 import { Footer } from "@/components/sections/Footer";
-import { BONE, BRONZE, GOLD, INK, LOAM, SERIF, eyebrow, sectionPad } from "@/components/tokens";
+import { BONE, BRONZE, INK, LOAM, SERIF, eyebrow, sectionPad } from "@/components/tokens";
 import { pages } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -42,23 +42,7 @@ export default function SitemapPage() {
                 </h2>
                 <p style={{ margin: 0, fontSize: 15, lineHeight: 1.7, color: LOAM }}>{p.summary}</p>
               </div>
-              {p.sections ? (
-                <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}>
-                  {p.sections.map((s) => (
-                    <li key={s.href}>
-                      <Link
-                        href={s.href}
-                        className="hover-gold-dim"
-                        style={{ fontSize: 15, lineHeight: 1.6, color: INK, borderBottom: `1px solid ${GOLD}`, paddingBottom: 2 }}
-                      >
-                        {s.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <span />
-              )}
+              <span />
             </li>
           ))}
         </ol>

@@ -1,8 +1,10 @@
 "use client";
 
 import { useState, type CSSProperties, type FormEvent } from "react";
+import Image from "next/image";
 import { ArrowIcon, IconBadge } from "../Icons";
 import { BONE, GOLD, INK, INK_2, SERIF, blockGap, eyebrow, iconButton, sectionPad } from "../tokens";
+import faridabadMap from "./faridabad_midnight_blue_20260927_232621.png";
 
 const FORMINIT_FORM_ID = "fdtcek1uzvk";
 
@@ -105,7 +107,7 @@ export function Contact() {
       style={{ display: "flex", flexDirection: "column", gap: blockGap, paddingTop: "clamp(48px, 7vw, 104px)", paddingBottom: sectionPad, background: INK }}
     >
       <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-        <p style={eyebrow(GOLD)}>§ 01 — Contact</p>
+        <p style={eyebrow(GOLD)}>Contact</p>
         <h1
           style={{
             margin: 0,
@@ -147,11 +149,11 @@ export function Contact() {
             <div className="info-row" style={infoRowStyle}>
               <dt style={infoLabelStyle}>Direct</dt>
               <dd style={{ ...infoValueStyle, display: "flex", flexDirection: "column", gap: 4 }}>
-                <a href="tel:+919717847278" className="hover-gold" style={{ color: BONE }}>
-                  +91 97178 47278
-                </a>
                 <a href="tel:+919811047278" className="hover-gold" style={{ color: BONE }}>
                   +91 98110 47278
+                </a>
+                <a href="tel:+919717847278" className="hover-gold" style={{ color: BONE }}>
+                  +91 97178 47278
                 </a>
               </dd>
             </div>
@@ -253,32 +255,24 @@ export function Contact() {
   );
 }
 
-// Stylised plan of the two offices in the survey-sheet style — swap for a live map when available.
+// City map of Faridabad with both offices in Sector 12 and NIT.
 function OfficeMap() {
   return (
     <figure
       style={{ margin: 0, display: "flex", flexDirection: "column", gap: 12, padding: "clamp(14px, 1.4vw, 20px)", border: "1px solid rgba(201,162,39,.38)", background: "#17160F" }}
     >
-      <svg viewBox="0 0 560 300" width="100%" style={{ display: "block" }} fill="none" role="img" aria-label="Office locations: S-22, Sector 12 and 3E-8, NIT, Faridabad">
-        <path d="M0 200 L560 120 M0 220 L560 140" stroke={GOLD} strokeOpacity={0.6} />
-        <path d="M300 0 L280 300 M318 0 L298 300" stroke={GOLD} strokeOpacity={0.45} />
-        <path
-          d="M40 20 L250 10 L260 150 L50 170 Z M340 20 L540 30 L535 100 L335 125 Z M60 240 L270 210 L265 300 L60 300 Z M320 180 L540 150 L545 300 L310 300 Z"
-          stroke={GOLD}
-          strokeOpacity={0.3}
+      <div style={{ position: "relative", width: "100%", aspectRatio: "4 / 3", overflow: "hidden" }}>
+        <Image
+          src={faridabadMap}
+          alt="Map of Faridabad, India, showing our offices in Sector 12 and NIT"
+          fill
+          sizes="(max-width: 900px) 100vw, 50vw"
+          style={{ objectFit: "cover", objectPosition: "50% 45%" }}
         />
-        <circle cx={150} cy={95} r={7} fill={GOLD} />
-        <circle cx={150} cy={95} r={16} stroke={GOLD} />
-        <circle cx={440} cy={235} r={7} fill={GOLD} />
-        <circle cx={440} cy={235} r={16} stroke={GOLD} />
-        <g fontFamily="var(--font-jost), sans-serif" fontSize={12} letterSpacing={2} fill={BONE}>
-          <text x={174} y={92}>S-22, SECTOR 12</text>
-          <text x={340} y={272}>3E-8, NIT</text>
-        </g>
-      </svg>
-      <figcaption style={{ display: "flex", justifyContent: "space-between", fontSize: 10, letterSpacing: ".3em", textTransform: "uppercase", color: "rgba(247,244,238,.55)" }}>
-        <span>Not to scale</span>
-        <span>Faridabad</span>
+      </div>
+      <figcaption style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: 8, fontSize: 10, letterSpacing: ".3em", textTransform: "uppercase", color: "rgba(247,244,238,.55)" }}>
+        <span>S-22, Sector 12 · 3E-8, NIT</span>
+        <span>28.4031° N / 77.3106° E</span>
       </figcaption>
     </figure>
   );

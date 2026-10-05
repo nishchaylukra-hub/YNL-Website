@@ -8,7 +8,6 @@ type SitePage = {
   lastModified: string;
   changeFrequency: "weekly" | "monthly" | "yearly";
   priority: number;
-  sections?: { href: string; label: string }[];
 };
 
 // Every indexable route. Add new pages here and they appear in both sitemap.xml and /sitemap.
@@ -20,10 +19,14 @@ export const pages: SitePage[] = [
     lastModified: "2026-09-25",
     changeFrequency: "monthly",
     priority: 1,
-    sections: [
-      { href: "/#services", label: "Services — buying land, investment advice, commercial leasing, developer sales, luxury rentals" },
-      { href: "/#about", label: "About us" },
-    ],
+  },
+  {
+    path: "/services",
+    title: "Services",
+    summary: "Buying land and estates, investment advice, commercial leasing and developer sales in Faridabad.",
+    lastModified: "2026-09-25",
+    changeFrequency: "monthly",
+    priority: 0.9,
   },
   {
     path: "/about",
@@ -32,7 +35,14 @@ export const pages: SitePage[] = [
     lastModified: "2026-09-25",
     changeFrequency: "yearly",
     priority: 0.8,
-    sections: [{ href: "/about#legal", label: "In-house Legal Cell — title checks, agreements, registration, civil disputes" }],
+  },
+  {
+    path: "/about-legal",
+    title: "In-house Legal Cell",
+    summary: "Title checks, agreements, registration and civil disputes, handled in-house in Faridabad.",
+    lastModified: "2026-09-25",
+    changeFrequency: "yearly",
+    priority: 0.8,
   },
   {
     path: "/contact",

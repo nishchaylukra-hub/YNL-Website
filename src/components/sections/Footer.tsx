@@ -29,7 +29,7 @@ export function Footer() {
         </div>
         <nav style={columnStyle}>
           <span style={headingStyle}>Site</span>
-          <Link href="/#services" className="hover-gold" style={linkStyle}>Services</Link>
+          <Link href="/services" className="hover-gold" style={linkStyle}>Services</Link>
           <Link href="/about" className="hover-gold" style={linkStyle}>About &amp; Legal Cell</Link>
           <Link href="/contact" className="hover-gold" style={linkStyle}>Contact</Link>
           <Link href="/sitemap" className="hover-gold" style={linkStyle}>Sitemap</Link>

@@ -24,7 +24,7 @@ export function ContactBand() {
       }}
     >
       <div style={{ display: "flex", flexDirection: "column", gap: "clamp(18px, 1.7vw, 24px)" }}>
-        <p style={eyebrow(INK)}>§ 05 — Contact</p>
+        <p style={eyebrow(INK)}>Contact</p>
         <h2
           style={{
             margin: 0,

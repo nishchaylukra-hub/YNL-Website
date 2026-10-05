@@ -4,12 +4,12 @@ import type { CSSProperties } from "react";
 import { BONE, GOLD, INK, buttonBase } from "../tokens";
 import { MobileNav } from "./MobileNav";
 
-type Page = "home" | "about" | "contact";
+type Page = "home" | "services" | "about" | "legal" | "contact";
 
 const links: { href: string; label: string; page?: Page }[] = [
-  { href: "/#services", label: "Services" },
+  { href: "/services", label: "Services", page: "services" },
   { href: "/about", label: "About", page: "about" },
-  { href: "/about#legal", label: "Legal Cell" },
+  { href: "/about-legal", label: "Legal Cell", page: "legal" },
   { href: "/contact", label: "Contact", page: "contact" },
 ];
 

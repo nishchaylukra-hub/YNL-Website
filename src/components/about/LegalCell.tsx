@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { BONE, GOLD, INK_2, SERIF, blockGap, eyebrow, sectionPad } from "../tokens";
 
 const practice = [
@@ -7,10 +8,10 @@ const practice = [
   { num: "iv.", title: "Civil disputes", body: "If a dispute arises on a property, we represent you directly." },
 ];
 
-export function LegalCell() {
+// `withPortrait` adds the Legal Cell head's photo beside the intro paragraph.
+export function LegalCell({ withPortrait = false }: { withPortrait?: boolean }) {
   return (
     <section
-      id="legal"
       className="wrap"
       style={{
         display: "flex",
@@ -21,20 +22,38 @@ export function LegalCell() {
         background: INK_2,
         color: BONE,
         borderTop: "1px solid rgba(201,162,39,.24)",
-        scrollMarginTop: 80,
       }}
     >
       <div className="split" style={{ alignItems: "end", ["--gap-sm" as string]: "24px" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
-          <p style={eyebrow(GOLD)}>§ 03 — In-house Legal Cell</p>
+          <p style={eyebrow(GOLD)}>In-house Legal Cell</p>
           <h2 style={{ margin: 0, fontFamily: SERIF, fontWeight: 300, fontSize: "clamp(34px, 4.4vw, 64px)", lineHeight: 1.02, textWrap: "balance" }}>
             Documentation and disputes, <em style={{ fontStyle: "italic", color: GOLD }}>handled in-house.</em>
           </h2>
         </div>
-        <p style={{ margin: 0, fontSize: "clamp(16px, 1.2vw, 17px)", lineHeight: 1.75, color: "rgba(247,244,238,.74)", textWrap: "pretty" }}>
-          If a civil dispute arises on a property, the Legal Cell represents our clients directly rather than referring
-          them elsewhere. It is headed by Mr. Yuvraj Lukra.
-        </p>
+        <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+          {withPortrait && (
+            <figure style={{ margin: 0, display: "flex", flexDirection: "column", gap: 12, maxWidth: 260 }}>
+              <div style={{ position: "relative", width: "100%", aspectRatio: "4 / 5", overflow: "hidden" }}>
+                <Image
+                  src="/assets/head-legal-cell-yuvraj-lukra.png"
+                  alt="Adv. Yuvraj Lukra, Head, Legal Cell"
+                  fill
+                  sizes="260px"
+                  style={{ objectFit: "cover", objectPosition: "50% 20%" }}
+                />
+              </div>
+              <figcaption style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                <span style={{ fontFamily: SERIF, fontSize: 26, lineHeight: 1.1 }}>Adv. Yuvraj Lukra</span>
+                <span style={{ fontSize: 11, letterSpacing: ".2em", textTransform: "uppercase", color: GOLD }}>Head, Legal Cell</span>
+              </figcaption>
+            </figure>
+          )}
+          <p style={{ margin: 0, fontSize: "clamp(16px, 1.2vw, 17px)", lineHeight: 1.75, color: "rgba(247,244,238,.74)", textWrap: "pretty" }}>
+            If a civil dispute arises on a property, the Legal Cell represents our clients directly rather than referring
+            them elsewhere. It is headed by Adv. Yuvraj Lukra.
+          </p>
+        </div>
       </div>
       <div className="ruled-cols stack-sm" style={{ borderTop: "1px solid rgba(201,162,39,.4)" }}>
         {practice.map((p) => (
