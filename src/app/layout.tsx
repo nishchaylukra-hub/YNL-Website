@@ -35,6 +35,8 @@ export const metadata: Metadata = {
     "land of agriculture",
     "Faridabad real estate",
   ],
+  authors: [{ name: "YNL Realtors", url: SITE_URL }],
+  publisher: "YNL Realtors",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

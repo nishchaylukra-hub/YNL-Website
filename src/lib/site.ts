@@ -53,6 +53,14 @@ export const pages: SitePage[] = [
     priority: 0.9,
   },
   {
+    path: "/blog",
+    title: "Insights",
+    summary: "Notes on land, homes and commercial property in Faridabad.",
+    lastModified: "2026-10-12",
+    changeFrequency: "weekly",
+    priority: 0.7,
+  },
+  {
     path: "/sitemap",
     title: "Sitemap",
     summary: "Every page on this site.",

@@ -6,11 +6,16 @@ const vercelLive = process.env.VERCEL_ENV === "preview" ? " https://vercel.live"
 
 // 'unsafe-inline' scripts are needed because the pages are statically prerendered, so Next's inline
 // bootstrap scripts can't carry a per-request nonce. Forminit's SDK loads from, and posts to, forminit.com.
+// Blog images are served by Sitedesk.
+const sitedeskOrigin = (() => {
+  try { return new URL(process.env.SITEDESK_URL ?? "https://sitedesk.jainarpit2004.workers.dev").origin; } catch { return "https://sitedesk.jainarpit2004.workers.dev"; }
+})();
+
 const csp = [
   "default-src 'self'",
   `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""} https://forminit.com${vercelLive}`,
   "style-src 'self' 'unsafe-inline'",
-  `img-src 'self' data: blob:${vercelLive}`,
+  `img-src 'self' data: blob: ${sitedeskOrigin}${vercelLive}`,
   "font-src 'self'",
   `connect-src 'self' https://forminit.com${vercelLive}${isDev ? " ws:" : ""}`,
   `frame-src 'self'${vercelLive}`,
