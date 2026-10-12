@@ -4,6 +4,10 @@ import { Header } from "@/components/sections/Header";
 import { Footer } from "@/components/sections/Footer";
 import { BONE, BRONZE, INK, LOAM, SERIF, eyebrow, sectionPad } from "@/components/tokens";
 import { pages } from "@/lib/site";
+import { getNotes } from "@/lib/sitedesk";
+
+/** Lists the live notes from Sitedesk too, so it changes by itself when one is published. */
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Sitemap — YNL Realtors, Faridabad Real Estate",
@@ -14,7 +18,12 @@ export const metadata: Metadata = {
 
 const rule = "1px solid rgba(20,19,15,.18)";
 
-export default function SitemapPage() {
+export default async function SitemapPage() {
+  const notes = await getNotes();
+  const rows = [
+    ...pages.map((p) => ({ path: p.path, title: p.title, summary: p.summary })),
+    ...(notes.ok ? notes.data.map((n) => ({ path: `/blog/${n.slug}`, title: n.title, summary: n.excerpt })) : []),
+  ];
   return (
     <div style={{ background: INK, color: BONE }}>
       <Header />
@@ -29,7 +38,7 @@ export default function SitemapPage() {
           </h1>
         </div>
         <ol style={{ margin: 0, padding: 0, listStyle: "none", borderBottom: rule }}>
-          {pages.map((p, i) => (
+          {rows.map((p, i) => (
             <li key={p.path} className="ledger-row" style={{ paddingBlock: 32, borderTop: rule }}>
               <span style={{ fontFamily: SERIF, fontStyle: "italic", fontSize: 32, lineHeight: 1, color: "#8A6D12" }}>
                 {String(i + 1).padStart(2, "0")}
