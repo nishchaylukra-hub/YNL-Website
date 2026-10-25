@@ -13,7 +13,7 @@ const csp = [
   `img-src 'self' data: blob:${vercelLive}`,
   "font-src 'self'",
   `connect-src 'self' https://forminit.com${vercelLive}${isDev ? " ws:" : ""}`,
-  `frame-src 'self'${vercelLive}`,
+  `frame-src 'self' https://www.google.com${vercelLive}`,
   "frame-ancestors 'none'",
   "object-src 'none'",
   "base-uri 'self'",
