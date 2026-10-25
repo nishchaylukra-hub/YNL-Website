@@ -1,10 +1,8 @@
 "use client";
 
 import { useState, type CSSProperties, type FormEvent } from "react";
-import Image from "next/image";
 import { ArrowIcon, IconBadge } from "../Icons";
 import { BONE, GOLD, INK, INK_2, SERIF, blockGap, eyebrow, iconButton, sectionPad } from "../tokens";
-import faridabadMap from "./faridabad_midnight_blue_20260927_232621.png";
 
 const FORMINIT_FORM_ID = "fdtcek1uzvk";
 
@@ -255,24 +253,69 @@ export function Contact() {
   );
 }
 
-// City map of Faridabad with both offices in Sector 12 and NIT.
+// Live Google Maps embeds for both offices, switched with a tab.
+const offices = [
+  {
+    label: "Sector 12",
+    address: "S-22, Sector 12, Faridabad",
+    mapSrc: "https://www.google.com/maps?q=28.3916196,77.2888735&output=embed",
+    directionsUrl: "https://maps.app.goo.gl/TRTo7dDRM5uVzTtJ9",
+  },
+  {
+    label: "NIT",
+    address: "3E-8, NIT, Faridabad",
+    mapSrc: "https://www.google.com/maps?q=28.3845828,77.3244994&output=embed",
+    directionsUrl: "https://maps.app.goo.gl/F1Kwsa3zrsNNvPxy5",
+  },
+];
+
 function OfficeMap() {
+  const [active, setActive] = useState(0);
+  const office = offices[active];
+
   return (
     <figure
       style={{ margin: 0, display: "flex", flexDirection: "column", gap: 12, padding: "clamp(14px, 1.4vw, 20px)", border: "1px solid rgba(201,162,39,.38)", background: "#17160F" }}
     >
+      <div role="tablist" aria-label="Office" style={{ display: "flex", gap: 8 }}>
+        {offices.map((o, i) => (
+          <button
+            key={o.label}
+            type="button"
+            role="tab"
+            aria-selected={i === active}
+            onClick={() => setActive(i)}
+            style={{
+              fontFamily: "var(--font-jost), sans-serif",
+              fontSize: 11,
+              letterSpacing: ".18em",
+              textTransform: "uppercase",
+              padding: "8px 16px",
+              background: i === active ? GOLD : "transparent",
+              color: i === active ? INK : "rgba(247,244,238,.7)",
+              border: `1px solid ${i === active ? GOLD : "rgba(247,244,238,.3)"}`,
+              cursor: "pointer",
+            }}
+          >
+            {o.label}
+          </button>
+        ))}
+      </div>
       <div style={{ position: "relative", width: "100%", aspectRatio: "4 / 3", overflow: "hidden" }}>
-        <Image
-          src={faridabadMap}
-          alt="Map of Faridabad, India, showing our offices in Sector 12 and NIT"
-          fill
-          sizes="(max-width: 900px) 100vw, 50vw"
-          style={{ objectFit: "cover", objectPosition: "50% 45%" }}
+        <iframe
+          key={office.label}
+          src={office.mapSrc}
+          title={`Map — ${office.address}`}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }}
         />
       </div>
-      <figcaption style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: 8, fontSize: 10, letterSpacing: ".3em", textTransform: "uppercase", color: "rgba(247,244,238,.55)" }}>
-        <span>S-22, Sector 12 · 3E-8, NIT</span>
-        <span>28.4031° N / 77.3106° E</span>
+      <figcaption style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: 8, fontSize: 10, letterSpacing: ".2em", textTransform: "uppercase" }}>
+        <span style={{ color: "rgba(247,244,238,.55)" }}>{office.address}</span>
+        <a href={office.directionsUrl} target="_blank" rel="noreferrer" className="hover-gold" style={{ color: GOLD }}>
+          Get directions →
+        </a>
       </figcaption>
     </figure>
   );
