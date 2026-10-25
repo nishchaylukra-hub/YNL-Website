@@ -259,15 +259,15 @@ const offices = [
     label: "Sector 12",
     address: "S-22, Sector 12, Faridabad",
     mapSrc:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d900!2d77.2888735!3d28.3916196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cdd30fb45eb03%3A0x58ca143fd81f2794!2sYNL%20Realtors!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
-    directionsUrl: "https://maps.app.goo.gl/TRTo7dDRM5uVzTtJ9",
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d900!2d77.3244994!3d28.3845828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cdddaad1fb055%3A0x56b02233f6e978ef!2sYNL%20Legal!5e0!3m2!1sen!2sin!4v1700000000001!5m2!1sen!2sin",
+    directionsUrl: "https://maps.app.goo.gl/F1Kwsa3zrsNNvPxy5",
   },
   {
     label: "NIT",
     address: "3E-8, NIT, Faridabad",
     mapSrc:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d900!2d77.3244994!3d28.3845828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cdddaad1fb055%3A0x56b02233f6e978ef!2sYNL%20Legal!5e0!3m2!1sen!2sin!4v1700000000001!5m2!1sen!2sin",
-    directionsUrl: "https://maps.app.goo.gl/F1Kwsa3zrsNNvPxy5",
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d900!2d77.2888735!3d28.3916196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cdd30fb45eb03%3A0x58ca143fd81f2794!2sYNL%20Realtors!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
+    directionsUrl: "https://maps.app.goo.gl/TRTo7dDRM5uVzTtJ9",
   },
 ];
 
