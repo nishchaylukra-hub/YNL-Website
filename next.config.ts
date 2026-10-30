@@ -6,13 +6,14 @@ const vercelLive = process.env.VERCEL_ENV === "preview" ? " https://vercel.live"
 
 // 'unsafe-inline' scripts are needed because the pages are statically prerendered, so Next's inline
 // bootstrap scripts can't carry a per-request nonce. Forminit's SDK loads from, and posts to, forminit.com.
+// Google Analytics (gtag.js) loads from googletagmanager.com and reports hits to google-analytics.com.
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""} https://forminit.com${vercelLive}`,
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""} https://forminit.com https://www.googletagmanager.com${vercelLive}`,
   "style-src 'self' 'unsafe-inline'",
-  `img-src 'self' data: blob:${vercelLive}`,
+  `img-src 'self' data: blob: https://www.googletagmanager.com https://www.google-analytics.com${vercelLive}`,
   "font-src 'self'",
-  `connect-src 'self' https://forminit.com${vercelLive}${isDev ? " ws:" : ""}`,
+  `connect-src 'self' https://forminit.com https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com${vercelLive}${isDev ? " ws:" : ""}`,
   `frame-src 'self' https://www.google.com${vercelLive}`,
   "frame-ancestors 'none'",
   "object-src 'none'",
