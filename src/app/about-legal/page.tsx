@@ -5,9 +5,9 @@ import { LegalCell } from "@/components/about/LegalCell";
 import { AboutCta } from "@/components/about/AboutCta";
 
 export const metadata: Metadata = {
-  title: "In-house Legal Cell — YNL Realtors, Faridabad",
+  title: "Property Lawyer in Faridabad | YNL Realtors Legal Cell",
   description:
-    "YNL's in-house Legal Cell handles title checks, agreements, registration and civil disputes on Faridabad property, headed by Adv. Yuvraj Lukra.",
+    "In-house property lawyers in Faridabad for title checks, agreements, registration and civil property disputes. Talk to the YNL Realtors Legal Cell.",
   alternates: { canonical: "/about-legal" },
 };
 
@@ -16,7 +16,7 @@ export default function AboutLegalPage() {
     <div style={{ background: "#14130F", color: "#F7F4EE" }}>
       <Header current="legal" />
       <main>
-        <LegalCell withPortrait />
+        <LegalCell as="h1" withPortrait />
         <AboutCta />
       </main>
       <Footer />

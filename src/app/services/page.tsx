@@ -5,9 +5,9 @@ import { ContactBand } from "@/components/sections/ContactBand";
 import { Footer } from "@/components/sections/Footer";
 
 export const metadata: Metadata = {
-  title: "Services — YNL Realtors, Faridabad",
+  title: "Property Services in Faridabad | YNL Realtors",
   description:
-    "Buying land and estates, investment advice, commercial leasing and developer sales from YNL Realtors in Faridabad, since the early 1980s.",
+    "Agriculture land, plots, investment advice, commercial leasing, developer sales and luxury rentals in Faridabad. Over forty years of straight answers.",
   alternates: { canonical: "/services" },
 };
 
@@ -16,7 +16,7 @@ export default function ServicesPage() {
     <div style={{ background: "#14130F", color: "#F7F4EE" }}>
       <Header current="services" />
       <main>
-        <Services />
+        <Services as="h1" />
         <ContactBand />
       </main>
       <Footer />

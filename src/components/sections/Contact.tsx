@@ -117,11 +117,13 @@ export function Contact() {
             color: BONE,
           }}
         >
-          Come to <em style={{ fontStyle: "italic", color: GOLD }}>the table.</em>
+          Talk to a <em style={{ fontStyle: "italic", color: GOLD }}>property dealer in Faridabad.</em>
         </h1>
         <p style={{ margin: 0, fontSize: "clamp(16px, 1.3vw, 18px)", lineHeight: 1.7, color: "rgba(247,244,238,.74)", maxWidth: 560, textWrap: "pretty" }}>
-          Viewings and portfolio reviews are by appointment. Tell us what you are holding or hunting and a principal
-          replies the same working day.
+          Tell us what you&apos;re looking for or what you&apos;re holding, whether that&apos;s a plot you want to sell,
+          a home you want to buy, or a space for your business. A principal from our team will reply the same working
+          day, and we&apos;ll suggest a time to meet. Viewings and portfolio reviews are by appointment, so you get our
+          full attention and not a rushed chat.
         </p>
       </div>
 
@@ -131,9 +133,9 @@ export function Contact() {
             <div className="info-row" style={infoRowStyle}>
               <dt style={infoLabelStyle}>Offices</dt>
               <dd style={infoValueStyle}>
-                S-22, Sector 12, Faridabad
+                Property dealer in Sector 12, Faridabad: S-22, Sector 12, Faridabad
                 <br />
-                3E-8, NIT, Faridabad
+                Property dealer in NIT, Faridabad: 3E-8, NIT, Faridabad
               </dd>
             </div>
             <div className="info-row" style={infoRowStyle}>
@@ -212,6 +214,10 @@ export function Contact() {
             <span style={fieldLabelStyle}>What are you looking for</span>
             <textarea name="fi-text-message" rows={4} style={{ ...fieldInputStyle, resize: "vertical" }} />
           </label>
+          <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: "rgba(247,244,238,.62)" }}>
+            Not sure where to start? Just call us. We&apos;d rather have a five-minute conversation now than have you
+            worry about it for a week.
+          </p>
           <button
             type="submit"
             disabled={status === "sending"}
@@ -227,7 +233,7 @@ export function Contact() {
               opacity: status === "sending" ? 0.7 : 1,
             }}
           >
-            {status === "sending" ? "Sending…" : status === "success" ? "Enquiry sent" : "Send enquiry"}
+            {status === "sending" ? "Sending…" : status === "success" ? "Request sent" : "Book a viewing"}
             <IconBadge background={INK} color={GOLD}><ArrowIcon /></IconBadge>
           </button>
           {status === "success" && (

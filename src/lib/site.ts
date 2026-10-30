@@ -15,7 +15,7 @@ export const pages: SitePage[] = [
   {
     path: "/",
     title: "Home",
-    summary: "Land, residential and commercial real estate in Faridabad since the early 1980s.",
+    summary: "Trusted Faridabad property dealer since the early 1980s, for land, homes and commercial space.",
     lastModified: "2026-09-25",
     changeFrequency: "monthly",
     priority: 1,
@@ -23,7 +23,7 @@ export const pages: SitePage[] = [
   {
     path: "/services",
     title: "Services",
-    summary: "Buying land and estates, investment advice, commercial leasing and developer sales in Faridabad.",
+    summary: "Agriculture land, plots, investment advice, commercial leasing, developer sales and luxury rentals in Faridabad.",
     lastModified: "2026-09-25",
     changeFrequency: "monthly",
     priority: 0.9,

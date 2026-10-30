@@ -1,42 +1,67 @@
 import Link from "next/link";
+import type { ElementType } from "react";
 import { BRONZE, GOLD, GOLD_DEEP, INK, LOAM, SAND, SERIF, blockGap, eyebrow, h2Style, sectionPad, smallCaps } from "../tokens";
 
 const services = [
   {
     num: "01",
-    title: "Buying land and estates",
-    body: "We help you find residential plots, farm land, agriculture land, builder floors and large old estates. We check the papers carefully so you can feel safe before you buy. We also look for land that may be ready for a new use, such as homes, offices, or other projects.",
-    tags: "Checking papers · Finding good land · Bringing land together",
+    title: "Agriculture land, plots and estates in Faridabad",
+    body: [
+      "Looking for farm land for sale in Faridabad, a residential plot, a builder floor or an old family estate? We started with agriculture land in the early 1980s, and it's still where we know the most. Before you pay anything, our legal team goes through the title, the ownership history and the registration papers, so you know exactly what you're buying and nothing surprises you later.",
+      "Some of the land we handle may be ready for a new use, like housing, offices or a larger project. If you're thinking about that, we'll tell you honestly what's possible and what's not.",
+    ],
+    tags: "Title and paper checks · Finding the right land · Bringing plots together",
+    linkText: "Talk to us about land",
   },
   {
     num: "02",
-    title: "Advice for property investments",
-    body: "Buying property is a big decision. We help you understand how your money may grow over time, explain the numbers in a simple way, and help you decide whether to keep a property, sell it, or buy another one.",
-    tags: "Understanding returns · Making smart choices · Planning the sale",
+    title: "Property investment advice in Faridabad",
+    body: [
+      "Property is usually the biggest money decision a family or investor makes, so it shouldn't be rushed. We'll sit down with you, go through the numbers in plain language, and explain what rent, resale value and holding costs might realistically look like. Then we help you decide whether to hold, sell or move into something new.",
+      "Sometimes the best advice is not to buy. If a property doesn't make sense for you, we'll say so, even if it means no deal for us. Clients tend to trust us more for that, and it's why many of them come back for their next purchase.",
+    ],
+    tags: "Understanding returns · Smart buying decisions · Planning your sale",
+    linkText: "Get property investment advice",
   },
   {
     num: "03",
-    title: "Commercial property leasing",
-    body: "We help businesses find offices, shops and other commercial properties — from the day you see an empty space until it is ready to use. We also help discuss the rent and other terms with the owner.",
-    tags: "Finding space · Discussing terms · Getting ready",
+    title: "Commercial property for lease in Faridabad",
+    body: [
+      "Whether you need an office, a shop or a larger commercial space, finding the right place is only half the job. We help you shortlist spaces that suit your business, your budget and your customers, then handle the conversation with the owner so the rent and terms are fair to both sides. We stay with you from the first viewing until the keys are in your hand and the space is ready to use.",
+      "Owners with commercial property to lease are welcome too. We'll help you find reliable tenants and agree terms that protect your property for the long run.",
+    ],
+    tags: "Finding the right space · Negotiating rent and terms · Getting ready to move in",
+    linkText: "Find commercial space in Faridabad",
   },
   {
     num: "04",
-    title: "Helping developers sell",
-    body: "We help builders and developers sell new homes and residential plots. Our private list of buyers may see these properties before everyone else — serious buyers, with the price kept steady.",
-    tags: "Good presentation · Early access · Finding buyers",
+    title: "Sell new homes and plots in Faridabad: support for builders and developers",
+    body: [
+      "Launching a project is hard enough without chasing buyers who aren't serious. We help builders and developers in Faridabad sell new homes, builder floors and residential plots by presenting each property clearly and putting it in front of the right people. Our private list of interested buyers, built over four decades, gets early access before a property goes to the wider market.",
+      "We focus on genuine buyers rather than a flood of enquiries, and we work to protect your pricing instead of rushing into discounts. That way you get steady, well-informed sales, and your buyers get honest answers from the first conversation.",
+    ],
+    tags: "Clear presentation · Early access for buyers · Finding genuine buyers",
+    linkText: "Talk to us about selling your project",
   },
   {
     num: "05",
-    title: "Luxury home rentals",
-    body: "We help owners rent out homes, villas and penthouses. We carefully check tenants, handle the paperwork, collect rent and look after the property, so owners do not have to worry.",
-    tags: "Finding tenants · Handling papers · Taking care of the home",
+    title: "Luxury home rentals in Faridabad",
+    body: [
+      "Renting out a villa, penthouse or high-end home should feel easy, not like a second job. We find tenants for your property in Faridabad, check each one carefully, and take care of the agreements and paperwork. Once they've moved in, we collect the rent and keep an eye on the property, so you're not getting calls about every small thing.",
+      "If you're looking for a premium home to rent, we can help with that too. We'll show you homes that suit your family and your budget, and we'll explain the lease terms clearly before you sign anything.",
+    ],
+    tags: "Finding reliable tenants · Handling the paperwork · Looking after your home",
+    linkText: "List your home for rent",
   },
 ];
 
 const rule = "1px solid rgba(20,19,15,.18)";
 
-export function Services() {
+// `as` lets the page that actually owns this content (/services) render the heading as the page's H1,
+// while the home page, which has its own H1 in the hero, keeps it as an H2.
+export function Services({ as = "h2" }: { as?: "h1" | "h2" } = {}) {
+  const Heading = as as ElementType;
+
   return (
     <section
       id="services"
@@ -55,14 +80,16 @@ export function Services() {
       <div className="split" style={{ alignItems: "end", ["--gap-sm" as string]: "28px" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
           <p style={eyebrow(BRONZE)}>Services</p>
-          <h2 style={h2Style}>
-            Five teams. <em style={{ fontStyle: "italic" }}>One trusted</em> property list.
-          </h2>
+          <Heading style={h2Style}>
+            Property services in Faridabad, <em style={{ fontStyle: "italic" }}>all under one roof</em>
+          </Heading>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 24, paddingBottom: 6 }}>
           <p style={{ margin: 0, fontSize: "clamp(16px, 1.2vw, 17px)", lineHeight: 1.75, color: LOAM, textWrap: "pretty" }}>
-            Our five teams work from the same list of properties, so buyers, sellers and builders all receive the same
-            clear and honest information. We make real estate simple, clear, and easy to understand.
+            Buying, selling, leasing or investing, you&apos;ll end up talking to the same team, looking at the same list
+            of properties and hearing the same straight answers. We&apos;ve spent over forty years in Faridabad, so we
+            know which sectors are growing, which deals look better on paper than in real life, and when it&apos;s
+            smarter to wait. That&apos;s the kind of advice we&apos;d want if it were our own money.
           </p>
           <Link
             href="/contact"
@@ -79,8 +106,19 @@ export function Services() {
             <span style={{ fontFamily: SERIF, fontStyle: "italic", fontSize: "clamp(34px, 3.4vw, 48px)", lineHeight: 1, color: GOLD_DEEP }}>{s.num}</span>
             <h3 style={{ margin: 0, fontFamily: SERIF, fontWeight: 400, fontSize: "clamp(26px, 2.5vw, 36px)", lineHeight: 1.1 }}>{s.title}</h3>
             <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-              <p style={{ margin: 0, fontSize: 16, lineHeight: 1.75, color: LOAM, textWrap: "pretty" }}>{s.body}</p>
+              {s.body.map((paragraph) => (
+                <p key={paragraph} style={{ margin: 0, fontSize: 16, lineHeight: 1.75, color: LOAM, textWrap: "pretty" }}>
+                  {paragraph}
+                </p>
+              ))}
               <p style={{ margin: 0, ...smallCaps(BRONZE), fontSize: 10, letterSpacing: ".18em", lineHeight: 1.7 }}>{s.tags}</p>
+              <Link
+                href="/contact"
+                className="hover-gold-dim"
+                style={{ width: "fit-content", paddingBottom: 6, borderBottom: `1px solid ${GOLD}`, ...smallCaps(INK), fontSize: 12, letterSpacing: ".2em" }}
+              >
+                {s.linkText} →
+              </Link>
             </div>
           </article>
         ))}
