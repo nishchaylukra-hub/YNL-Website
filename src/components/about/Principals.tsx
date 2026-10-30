@@ -1,9 +1,12 @@
 import Image from "next/image";
 import { BONE, BRONZE, INK, SERIF, blockGap, eyebrow, sectionPad, smallCaps } from "../tokens";
 
+// objectPosition is tuned per photo, not identical, because the two source photos have very
+// different aspect ratios (a tall 3/4 portrait vs. a near-square headshot) — the same crop
+// percentage puts their faces at noticeably different heights in the frame otherwise.
 const team = [
-  { name: "Narender Kumar Lukra", role: "Founder", photo: "/assets/founder-narender-lukra.png", objectPosition: "50% 20%" },
-  { name: "Yuvraj Lukra", role: "Head, Legal Cell", photo: "/assets/head-legal-cell-yuvraj-lukra.png", objectPosition: "50% 20%" },
+  { name: "Narender Kumar Lukra", role: "Founder", photo: "/assets/founder-narender-lukra.png", objectPosition: "50% 0%" },
+  { name: "Yuvraj Lukra", role: "Head, Legal Cell", photo: "/assets/head-legal-cell-yuvraj-lukra.png", objectPosition: "50% 30%" },
 ];
 
 export function Principals() {
