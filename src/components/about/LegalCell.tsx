@@ -78,7 +78,7 @@ export function LegalCell({ as = "h2", withPortrait = false }: { as?: "h1" | "h2
         {withPortrait ? (
           <div
             className="split"
-            style={{ ["--cols" as string]: "220px minmax(0, 1fr)", ["--gap" as string]: "32px", ["--gap-sm" as string]: "20px", alignItems: "start" }}
+            style={{ ["--cols" as string]: "220px minmax(0, 1fr)", ["--gap" as string]: "32px", ["--gap-sm" as string]: "20px", alignItems: "center" }}
           >
             <figure style={{ margin: 0, display: "flex", flexDirection: "column", gap: 12 }}>
               <div style={{ position: "relative", width: "100%", aspectRatio: "4 / 5", overflow: "hidden" }}>
