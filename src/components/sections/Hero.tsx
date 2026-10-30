@@ -5,7 +5,8 @@ import { BONE, GOLD, INK, SERIF, buttonBase, iconButton, smallCaps } from "../to
 import faridabadMap from "./faridabad_midnight_blue_20260927_232621.png";
 
 const facts: { value: string; label: string; italic?: boolean }[] = [
-  { value: "62", label: "Live exclusive mandates" },
+  { value: "40+", label: "Years in Faridabad" },
+  { value: "1,135", label: "Acres placed" },
   { value: "In-house", label: "Legal Cell", italic: true },
   { value: "Two", label: "Offices in Faridabad" },
 ];
@@ -25,7 +26,7 @@ export function Hero() {
       <div style={{ display: "flex", flexDirection: "column", gap: "clamp(24px, 2.5vw, 36px)" }}>
         <p style={{ margin: 0, display: "flex", alignItems: "center", gap: 16, ...smallCaps(GOLD), letterSpacing: "clamp(.26em, 3vw, .42em)", lineHeight: 1.6 }}>
           <span style={{ width: 32, height: 1, flexShrink: 0, background: GOLD, display: "block" }} />
-          Faridabad · Since the early 1980s
+          Faridabad real estate · Since the early 1980s
         </p>
         <h1
           style={{
@@ -39,15 +40,18 @@ export function Hero() {
             textWrap: "balance",
           }}
         >
-          Addresses that <em style={{ fontStyle: "italic", color: GOLD }}>outlive</em> the market.
+          Property in Faridabad, chosen with care and{" "}
+          <em style={{ fontStyle: "italic", color: GOLD }}>checked down to the last paper.</em>
         </h1>
         <p style={{ margin: 0, fontSize: "clamp(16px, 1.3vw, 18px)", lineHeight: 1.7, color: "rgba(247,244,238,.74)", maxWidth: 500, textWrap: "pretty" }}>
-          We place land, penthouses and prime commercial floors with the people and institutions who hold them for
-          generations. Off-market first. Always.
+          YNL Realtors has been helping Faridabad families, investors and businesses buy, sell and lease property since
+          the early 1980s. Whether you&apos;re looking for a family home, farm land, a builder floor or a commercial
+          space, we&apos;ll tell you what&apos;s worth your money, and what isn&apos;t, before you commit. Every deal is
+          backed by our own legal team, so the paperwork is never something you have to worry about.
         </p>
         <div className="btn-row" style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
           <Link href="/contact" className="btn-gold" style={{ ...iconButton, background: GOLD, color: INK, border: `1px solid ${GOLD}` }}>
-            Request the portfolio
+            Book a viewing
             <IconBadge background={INK} color={GOLD}><ArrowIcon /></IconBadge>
           </Link>
           <Link
@@ -55,12 +59,12 @@ export function Hero() {
             className="btn-outline"
             style={{ ...buttonBase, fontWeight: 400, color: BONE, border: "1px solid rgba(247,244,238,.34)" }}
           >
-            What we do
+            See what we do
           </Link>
         </div>
         <div
           className="ruled-cols keep-cols"
-          style={{ ["--n" as string]: 3, marginTop: "clamp(4px, 1.4vw, 20px)", borderTop: "1px solid rgba(247,244,238,.14)", ["--rule" as string]: "rgba(247,244,238,.14)" }}
+          style={{ ["--n" as string]: 4, marginTop: "clamp(4px, 1.4vw, 20px)", borderTop: "1px solid rgba(247,244,238,.14)", ["--rule" as string]: "rgba(247,244,238,.14)" }}
         >
           {facts.map((f) => (
             <div key={f.label} style={{ display: "flex", flexDirection: "column", gap: 6, paddingTop: 22 }}>

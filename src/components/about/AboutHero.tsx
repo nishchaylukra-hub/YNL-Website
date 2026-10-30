@@ -35,11 +35,13 @@ export function AboutHero() {
             textWrap: "balance",
           }}
         >
-          Four decades, one desk, <em style={{ fontStyle: "italic" }}>one city.</em>
+          A real estate company in Faridabad built on <em style={{ fontStyle: "italic" }}>trust, one client at a time.</em>
         </h1>
-        <p style={{ margin: 0, fontSize: "clamp(16px, 1.3vw, 18px)", lineHeight: 1.7, color: "rgba(247,244,238,.74)", maxWidth: 520, textWrap: "pretty" }}>
-          With more than forty years of experience, we believe in clear advice, careful paperwork, and honest realty
-          services.
+        <p style={{ margin: 0, fontSize: "clamp(16px, 1.3vw, 18px)", lineHeight: 1.7, color: "rgba(247,244,238,.74)", maxWidth: 560, textWrap: "pretty" }}>
+          YNL Realtors began in the early 1980s, when our founder, Mr. Narender Kumar Lukra, started buying and selling
+          agriculture land in Faridabad. Over the years, that one desk has grown into a family-run real estate company
+          that handles farm land, homes, plots and commercial property. Faridabad has changed a great deal since then,
+          and so have we, but the way we work hasn&apos;t: we tell you what we&apos;d tell our own family.
         </p>
       </div>
     </section>

@@ -9,6 +9,9 @@ import { ContactBand } from "@/components/sections/ContactBand";
 import { Footer } from "@/components/sections/Footer";
 
 export const metadata: Metadata = {
+  title: "Real Estate Agent in Faridabad | YNL Realtors",
+  description:
+    "Trusted Faridabad property dealer since the early 1980s. Land, homes and commercial space, backed by an in-house legal team. Book a viewing today.",
   alternates: { canonical: "/" },
 };
 

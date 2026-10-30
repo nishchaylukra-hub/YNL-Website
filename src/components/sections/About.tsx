@@ -84,7 +84,7 @@ export function About() {
               className="hover-gold"
               style={{ width: "fit-content", ...smallCaps(GOLD), fontSize: 12, letterSpacing: ".2em", borderBottom: "1px solid rgba(201,162,39,.5)", paddingBottom: 6 }}
             >
-              Headed by Adv. Yuvraj Lukra →
+              Speak to our Legal Cell →
             </Link>
           </div>
         </div>

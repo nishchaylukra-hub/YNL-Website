@@ -4,9 +4,9 @@ import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
 
 export const metadata: Metadata = {
-  title: "Contact YNL Realtors — Book a Viewing in Faridabad",
+  title: "Property Dealer in Faridabad | Contact YNL Realtors",
   description:
-    "Book a viewing or request the portfolio. Offices at S-22, Sector 12 and 3E-8, NIT, Faridabad. A principal replies the same working day.",
+    "Visit YNL Realtors in Sector 12 or NIT, Faridabad, or call us to book a property viewing. A principal replies the same working day.",
   alternates: { canonical: "/contact" },
 };
 

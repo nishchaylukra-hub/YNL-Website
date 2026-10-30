@@ -8,9 +8,9 @@ import { Principals } from "@/components/about/Principals";
 import { AboutCta } from "@/components/about/AboutCta";
 
 export const metadata: Metadata = {
-  title: "About & Legal Cell — YNL Realtors",
+  title: "Real Estate Company in Faridabad | About YNL Realtors",
   description:
-    "Four decades of real estate in Faridabad since the early 1980s, with an in-house Legal Cell for title checks, agreements, registration and civil disputes.",
+    "A family-run Faridabad real estate company since the early 1980s. Meet our founder and team, and see how our in-house legal cell protects every deal.",
   alternates: { canonical: "/about" },
 };
 
