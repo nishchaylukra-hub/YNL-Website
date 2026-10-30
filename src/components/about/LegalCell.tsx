@@ -63,19 +63,30 @@ export function LegalCell({ as = "h2", withPortrait = false }: { as?: "h1" | "h2
           </div>
         ))}
       </div>
-      <div className="split" style={{ alignItems: "start", ["--gap-sm" as string]: "24px", paddingTop: "clamp(8px, 1vw, 16px)", borderTop: "1px solid rgba(201,162,39,.24)" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "clamp(20px, 2.2vw, 28px)",
+          paddingTop: "clamp(8px, 1vw, 16px)",
+          borderTop: "1px solid rgba(201,162,39,.24)",
+        }}
+      >
         <h3 style={{ margin: 0, fontFamily: SERIF, fontWeight: 400, fontSize: "clamp(24px, 2vw, 28px)", lineHeight: 1.15 }}>
           Meet the head of our Legal Cell
         </h3>
-        <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-          {withPortrait && (
-            <figure style={{ margin: 0, display: "flex", flexDirection: "column", gap: 12, maxWidth: 260 }}>
+        {withPortrait ? (
+          <div
+            className="split"
+            style={{ ["--cols" as string]: "220px minmax(0, 1fr)", ["--gap" as string]: "32px", ["--gap-sm" as string]: "20px", alignItems: "start" }}
+          >
+            <figure style={{ margin: 0, display: "flex", flexDirection: "column", gap: 12 }}>
               <div style={{ position: "relative", width: "100%", aspectRatio: "4 / 5", overflow: "hidden" }}>
                 <Image
                   src="/assets/head-legal-cell-yuvraj-lukra.png"
                   alt="Adv. Yuvraj Lukra, Head, Legal Cell"
                   fill
-                  sizes="260px"
+                  sizes="220px"
                   style={{ objectFit: "cover", objectPosition: "50% 20%" }}
                 />
               </div>
@@ -84,12 +95,17 @@ export function LegalCell({ as = "h2", withPortrait = false }: { as?: "h1" | "h2
                 <span style={{ fontSize: 11, letterSpacing: ".2em", textTransform: "uppercase", color: GOLD }}>Head, Legal Cell</span>
               </figcaption>
             </figure>
-          )}
-          <p style={{ margin: 0, fontSize: "clamp(16px, 1.2vw, 17px)", lineHeight: 1.75, color: "rgba(247,244,238,.74)", textWrap: "pretty" }}>
+            <p style={{ margin: 0, fontSize: "clamp(16px, 1.2vw, 17px)", lineHeight: 1.75, color: "rgba(247,244,238,.74)", textWrap: "pretty" }}>
+              The Legal Cell is headed by Adv. Yuvraj Lukra, who works alongside our valuation and documentation teams
+              so that legal, price and paperwork are always looked at together.
+            </p>
+          </div>
+        ) : (
+          <p style={{ margin: 0, maxWidth: 640, fontSize: "clamp(16px, 1.2vw, 17px)", lineHeight: 1.75, color: "rgba(247,244,238,.74)", textWrap: "pretty" }}>
             The Legal Cell is headed by Adv. Yuvraj Lukra, who works alongside our valuation and documentation teams so
             that legal, price and paperwork are always looked at together.
           </p>
-        </div>
+        )}
       </div>
     </section>
   );
