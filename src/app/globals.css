@@ -83,6 +83,17 @@ textarea {
   padding-inline: clamp(24px, 6.7vw, 96px);
 }
 
+/* Past ~1950px (e.g. a 4480x2520 Mac display, ~2240px of CSS width at 2x), the 96px side padding
+   stops growing and content would otherwise stretch edge to edge. Grow the padding instead of
+   capping .wrap's own width, so each section's full-bleed background still spans the viewport —
+   only the content column centers and tops out at 1760px. Continuous with the clamp above: at
+   exactly 1952px, calc() already evaluates to 96px, so there's no visible jump at the breakpoint. */
+@media (min-width: 1952px) {
+  .wrap {
+    padding-inline: calc((100% - 1760px) / 2);
+  }
+}
+
 .split {
   display: grid;
   grid-template-columns: var(--cols, minmax(0, 1fr) minmax(0, 1fr));
