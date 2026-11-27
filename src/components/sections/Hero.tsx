@@ -40,7 +40,7 @@ export function Hero() {
             textWrap: "balance",
           }}
         >
-          Property in Faridabad, chosen with care and{" "}
+          Property in Gurgaon, chosen with care and{" "}
           <em style={{ fontStyle: "italic", color: GOLD }}>checked down to the last paper.</em>
         </h1>
         <p style={{ margin: 0, fontSize: "clamp(16px, 1.3vw, 18px)", lineHeight: 1.7, color: "rgba(247,244,238,.74)", maxWidth: 500, textWrap: "pretty" }}>
